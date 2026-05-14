@@ -52,6 +52,12 @@ export default function HeroContent() {
   return (
     <div ref={containerRef} className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 lg:px-24">
       <div className="max-w-6xl flex flex-col items-center text-center">
+        {/* KCET Badge */}
+        <div className="mb-8 px-6 py-2 rounded-full border border-neon-cyan/50 bg-neon-cyan/10 shadow-[0_0_15px_rgba(0,245,255,0.2)] flex items-center gap-3 backdrop-blur-sm">
+          <span className="w-2.5 h-2.5 rounded-full bg-neon-cyan animate-pulse shadow-[0_0_10px_#00f5ff]"></span>
+          <span className="font-orbitron font-bold text-neon-cyan text-xs md:text-sm tracking-[0.2em] uppercase">B.Tech KCET Code: E303</span>
+        </div>
+
         {/* Top Line */}
         <div className="dept-line mb-6 text-sm md:text-base tracking-[0.34em] text-neon-cyan flex flex-wrap justify-center gap-2 font-bold">
           {"DEPARTMENT OF".split("").map((char, i) => (
