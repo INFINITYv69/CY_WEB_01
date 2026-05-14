@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import { Info } from "lucide-react";
 
 const stats = [
   { label: "EST. 2024", value: "2024", sub: "Pulsing System", type: "pulse" },
@@ -61,7 +62,7 @@ export default function About() {
         {/* Text Content */}
         <div>
           <h2 className="text-4xl md:text-6xl font-orbitron font-bold mb-8 flex flex-col items-center gap-y-2 leading-tight">
-            <span className="text-neon-cyan">About the Department</span>
+            <span className="text-neon-cyan flex items-center gap-4"><Info size={40} className="text-neon-cyan" /> About the Department</span>
           </h2>
 
           <div className="space-y-6 font-share-tech text-text-primary/70 leading-relaxed text-lg md:text-2xl">

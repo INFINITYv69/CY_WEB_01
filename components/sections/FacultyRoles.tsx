@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { User, BookOpen, Star, ShieldCheck } from "lucide-react";
+import { User, BookOpen, Star, ShieldCheck, LayoutList } from "lucide-react";
 
 export const facultyRolesData = [
   {
@@ -89,7 +89,8 @@ export default function FacultyRoles() {
       <div className="max-w-[1400px] mx-auto">
         <div className="text-center mb-16">
           <p className="text-sm font-bold uppercase tracking-widest text-text-muted mb-2">Department Structure</p>
-          <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-text-primary">
+          <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-text-primary flex items-center justify-center gap-4">
+            <LayoutList size={40} className="text-neon-cyan" />
             Roles of <span className="text-neon-cyan">Faculty</span>
           </h2>
         </div>

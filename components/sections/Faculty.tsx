@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Users } from "lucide-react";
 import { faculty } from "@/lib/siteData";
 
 export default function Faculty() {
@@ -11,8 +12,9 @@ export default function Faculty() {
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="mb-12 max-w-3xl">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.32em] text-slate-500">Department Team</p>
-          <h2 className="text-4xl font-bold md:text-6xl text-slate-800">
-            Roles of <span className="text-sky-600">Faculty</span>
+          <h2 className="text-4xl font-bold md:text-6xl text-slate-800 flex items-center gap-4">
+            <Users size={48} className="text-sky-600" />
+            Faculty <span className="text-sky-600">Directory</span>
           </h2>
         </div>
 

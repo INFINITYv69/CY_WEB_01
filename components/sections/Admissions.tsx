@@ -1,13 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, ExternalLink } from "lucide-react";
+import { Mail, Phone, ExternalLink, GraduationCap } from "lucide-react";
 
 export default function Admissions() {
   return (
     <section id="admissions" className="py-24 px-6 lg:px-24 bg-cyber-dark/20">
       <div className="max-w-7xl mx-auto flex flex-col items-center">
-        <h2 className="text-4xl md:text-6xl font-orbitron font-bold mb-16 text-center">
+        <h2 className="text-4xl md:text-6xl font-orbitron font-bold mb-16 text-center flex items-center justify-center gap-4">
+          <GraduationCap size={56} className="text-neon-cyan" />
           <span className="text-neon-cyan">Admissions</span>
         </h2>
         

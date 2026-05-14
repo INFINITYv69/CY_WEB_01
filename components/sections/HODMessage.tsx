@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Terminal as TerminalIcon } from "lucide-react";
+import { Terminal as TerminalIcon, MessageSquare } from "lucide-react";
 
 export default function HODMessage() {
   return (
@@ -44,7 +44,8 @@ export default function HODMessage() {
 
         {/* Right: Content */}
         <div className="flex-1">
-          <h2 className="text-4xl md:text-6xl font-orbitron font-bold mb-8">
+          <h2 className="text-4xl md:text-6xl font-orbitron font-bold mb-8 flex items-center gap-4">
+            <MessageSquare size={48} className="text-neon-cyan" />
             <span className="text-neon-cyan">Message from HOD</span>
           </h2>
 

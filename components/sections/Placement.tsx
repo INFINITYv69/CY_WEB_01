@@ -1,4 +1,5 @@
 "use client";
+import { Briefcase } from "lucide-react";
 
 export default function Placement() {
   return (
@@ -6,7 +7,8 @@ export default function Placement() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-16 mb-24">
           <div className="flex-1">
-            <h2 className="text-4xl md:text-6xl font-orbitron font-bold mb-8">
+            <h2 className="text-4xl md:text-6xl font-orbitron font-bold mb-8 flex items-center gap-4">
+              <Briefcase size={48} className="text-neon-magenta" />
               <span className="text-neon-magenta">Placements</span>
             </h2>
             <p className="font-share-tech text-lg text-text-muted leading-relaxed">
