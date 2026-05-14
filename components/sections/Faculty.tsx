@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Users } from "lucide-react";
+import { Users, ExternalLink } from "lucide-react";
 import { faculty } from "@/lib/siteData";
 
 export default function Faculty() {
@@ -53,9 +53,10 @@ export default function Faculty() {
                     href={member.cv} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="mt-6 px-6 py-2.5 text-[11px] font-bold text-white uppercase tracking-widest bg-sky-500 rounded-full hover:bg-sky-600 hover:shadow-[0_8px_20px_rgba(14,165,233,0.3)] transition-all cursor-pointer"
+                    className="mt-6 px-6 py-2.5 text-[11px] font-bold text-white uppercase tracking-widest bg-sky-500 rounded-full hover:bg-sky-600 hover:shadow-[0_8px_20px_rgba(14,165,233,0.3)] transition-all cursor-pointer flex items-center justify-center gap-2"
                   >
-                    View Profile
+                    <span>View Profile</span>
+                    <ExternalLink size={14} />
                   </a>
                 )}
               </div>

@@ -2,11 +2,13 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { Eye, Target, Crosshair } from "lucide-react";
 
 const content = [
   {
     id: "Vision",
     title: "Vision",
+    icon: Eye,
     accent: "text-neon-cyan",
     border: "border-neon-cyan/30",
     glow: "shadow-[0_0_15px_rgba(0,245,255,0.1)]",
@@ -15,6 +17,7 @@ const content = [
   {
     id: "Mission",
     title: "Mission",
+    icon: Target,
     accent: "text-neon-magenta",
     border: "border-neon-magenta/30",
     glow: "shadow-[0_0_15px_rgba(255,0,255,0.1)]",
@@ -29,6 +32,7 @@ const content = [
   {
     id: "Objectives",
     title: "Objectives",
+    icon: Crosshair,
     accent: "text-neon-green",
     border: "border-neon-green/30",
     glow: "shadow-[0_0_15px_rgba(57,255,20,0.1)]",
@@ -84,7 +88,8 @@ function TerminalPanel({ panel, delay }: { panel: TerminalPanelData, delay: numb
       className={`relative flex flex-col bg-cyber-panel/85 border ${panel.border} ${panel.glow} rounded-2xl overflow-hidden h-full min-h-[400px]`}
     >
       <div className="p-7 text-base leading-relaxed flex-1 mt-4">
-        <div className={`mb-5 font-orbitron text-2xl font-bold ${panel.accent}`}>
+        <div className={`mb-5 font-orbitron text-2xl font-bold ${panel.accent} flex items-center gap-3`}>
+          {panel.icon && <panel.icon size={28} />}
           {panel.title}
         </div>
         

@@ -17,7 +17,7 @@ export default function Placement() {
             
             <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-8">
               <StatItem label="HIRING COMPANIES" value="20+" color="text-neon-cyan" />
-              <StatItem label="AVG PACKAGE" value="Rs. 6.5 LPA" color="text-neon-magenta" />
+              <StatItem label="AVG PACKAGE" value="₹6.5 LPA" color="text-neon-magenta" />
               <StatItem label="PLACEMENT RATE" value="85%" color="text-neon-green" />
             </div>
           </div>
