@@ -24,17 +24,19 @@ export default function Faculty() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.04, duration: 0.35 }}
-              className="group overflow-hidden rounded-3xl border border-sky-100 bg-white transition-all duration-300 hover:-translate-y-2 hover:border-sky-300 hover:shadow-[0_18px_50px_rgba(14,165,233,0.15)] flex flex-col items-center text-center pb-6 shadow-[0_8px_30px_rgba(14,165,233,0.04)]"
+              className="group overflow-hidden rounded-3xl border-2 border-blue-500/20 bg-white transition-all duration-300 hover:-translate-y-2 hover:border-blue-500 hover:shadow-[0_18px_50px_rgba(59,130,246,0.25)] flex flex-col items-center text-center pb-6 shadow-lg shadow-blue-900/5"
             >
-              <div className="relative w-40 h-40 mt-8 mb-4 overflow-hidden rounded-full border-[6px] border-sky-50 bg-white shadow-[0_0_20px_rgba(14,165,233,0.15)]">
-                <Image
-                  src={member.photo}
-                  alt={member.name}
-                  fill
-                  sizes="160px"
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  priority={index < 4}
-                />
+              <div className="relative w-40 h-40 mt-8 mb-4 shrink-0 rounded-full p-[4px] bg-gradient-to-tr from-blue-800 via-blue-500 to-cyan-400 shadow-[0_0_25px_rgba(59,130,246,0.3)] group-hover:shadow-[0_0_35px_rgba(59,130,246,0.5)] transition-all duration-500">
+                <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white bg-white">
+                  <Image
+                    src={member.photo}
+                    alt={member.name}
+                    fill
+                    sizes="160px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    priority={index < 4}
+                  />
+                </div>
               </div>
 
               <div className="px-5 flex flex-col flex-1 items-center justify-between w-full">

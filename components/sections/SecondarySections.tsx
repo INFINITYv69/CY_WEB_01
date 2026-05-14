@@ -34,9 +34,11 @@ export function DQAC() {
             ))}
           </div>
         </div>
-        <div className="w-full h-full p-8 bg-white border border-sky-100 rounded-3xl relative group flex flex-col justify-center items-center text-center shadow-[0_8px_30px_rgba(14,165,233,0.08)] hover:shadow-[0_18px_50px_rgba(14,165,233,0.15)] hover:border-sky-300 transition-all duration-300">
-          <div className="relative w-40 h-40 rounded-full overflow-hidden border-[6px] border-sky-50 shadow-[0_0_20px_rgba(14,165,233,0.15)] shrink-0 mb-6">
-            <img src="https://cy-iy.vercel.app/static/pavan_faculty.png" alt="Mr. Pavan Kumar N T" className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500" />
+        <div className="w-full h-full p-8 bg-white border-2 border-blue-500/20 rounded-3xl relative group flex flex-col justify-center items-center text-center shadow-lg shadow-blue-900/5 hover:shadow-[0_18px_50px_rgba(59,130,246,0.25)] hover:border-blue-500 transition-all duration-300">
+          <div className="relative w-40 h-40 rounded-full p-[4px] bg-gradient-to-tr from-blue-800 via-blue-500 to-cyan-400 shadow-[0_0_25px_rgba(59,130,246,0.3)] shrink-0 mb-6 group-hover:shadow-[0_0_35px_rgba(59,130,246,0.5)] transition-all duration-500">
+            <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white bg-white">
+              <img src="https://cy-iy.vercel.app/static/pavan_faculty.png" alt="Mr. Pavan Kumar N T" className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110" />
+            </div>
           </div>
           <h4 className="font-orbitron font-bold text-slate-800 text-xl md:text-2xl mb-2">{/* ... */}Mr. Pavan Kumar N T</h4>
           <p className="text-sky-600 text-sm tracking-widest uppercase font-bold mb-6">DQAC Coordinator</p>
@@ -64,10 +66,12 @@ export function Research() {
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[420px_1fr]">
         <div>
-          <div className="h-full p-8 bg-white border border-sky-100 rounded-3xl relative group overflow-hidden shadow-[0_8px_30px_rgba(14,165,233,0.08)] hover:shadow-[0_18px_50px_rgba(14,165,233,0.15)] hover:border-sky-300 transition-all duration-300">
+          <div className="h-full p-8 bg-white border-2 border-blue-500/20 rounded-3xl relative group overflow-hidden shadow-lg shadow-blue-900/5 hover:shadow-[0_18px_50px_rgba(59,130,246,0.25)] hover:border-blue-500 transition-all duration-300">
             <div className="relative z-10 flex flex-col items-center text-center">
-              <div className="relative w-40 h-40 rounded-full overflow-hidden border-[6px] border-sky-50 mb-6 shadow-[0_0_20px_rgba(14,165,233,0.15)] shrink-0">
-                <img src="https://res.cloudinary.com/dkg60zkba/image/upload/v1774188001/faculty/nmr2zfqaftglonhpsiuy.jpg" alt="Dr. Aruna Kumar B T" className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500" />
+              <div className="relative w-40 h-40 rounded-full p-[4px] bg-gradient-to-tr from-blue-800 via-blue-500 to-cyan-400 mb-6 shadow-[0_0_25px_rgba(59,130,246,0.3)] shrink-0 group-hover:shadow-[0_0_35px_rgba(59,130,246,0.5)] transition-all duration-500">
+                <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white bg-white">
+                  <img src="https://res.cloudinary.com/dkg60zkba/image/upload/v1774188001/faculty/nmr2zfqaftglonhpsiuy.jpg" alt="Dr. Aruna Kumar B T" className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110" />
+                </div>
               </div>
               <h4 className="font-orbitron font-bold text-slate-800 mb-2 text-xl md:text-2xl">Dr. Aruna Kumar B T</h4>
               <p className="font-share-tech text-sm md:text-lg text-sky-600 mb-6 font-bold uppercase tracking-widest">Research Coordinator</p>

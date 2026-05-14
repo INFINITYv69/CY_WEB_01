@@ -120,12 +120,14 @@ export default function FacultyRoles() {
                     </td>
                     <td className="p-6">
                       <div className="flex items-center gap-4">
-                        <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-transparent group-hover:border-neon-cyan transition-colors shadow-sm shrink-0">
-                          <img src={staff.photo} alt={staff.name} className="w-full h-full object-cover" />
+                        <div className="relative w-14 h-14 rounded-full p-[2px] bg-gradient-to-tr from-blue-700 via-blue-500 to-cyan-400 shrink-0 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.4)] transition-all duration-300">
+                          <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-white bg-white">
+                            <img src={staff.photo} alt={staff.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                          </div>
                         </div>
                         <div>
-                          <div className="font-bold text-text-primary text-base md:text-lg mb-0.5">{staff.name}</div>
-                          <div className="text-sm text-neon-cyan font-medium">{staff.designation}</div>
+                          <div className="font-bold text-slate-800 text-base md:text-lg mb-0.5">{staff.name}</div>
+                          <div className="text-sm text-sky-600 font-medium tracking-wide">{staff.designation}</div>
                         </div>
                       </div>
                     </td>
