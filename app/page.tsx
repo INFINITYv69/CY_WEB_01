@@ -10,6 +10,7 @@ import HODMessage from "@/components/sections/HODMessage";
 import VisionMission from "@/components/sections/VisionMission";
 import Programs from "@/components/sections/Programs";
 import Faculty from "@/components/sections/Faculty";
+import FacultyRoles from "@/components/sections/FacultyRoles";
 import BoardOfStudies from "@/components/sections/BoardOfStudies";
 import Achievements from "@/components/sections/Achievements";
 import Placement from "@/components/sections/Placement";
@@ -38,6 +39,7 @@ export default function Home() {
         <HODMessage />
         <Programs />
         <Faculty />
+        <FacultyRoles />
         <BoardOfStudies />
         <QuickAccess />
         <StudentCorner />

@@ -127,6 +127,15 @@ export const faculty = [
     cv: "",
   },
   {
+    name: "Bhoomika G S",
+    role: "Assistant Professor",
+    focus: "Cultural activities, student engagement, and peer mentoring.",
+    signal: "FACULTY_NODE",
+    tags: ["Cultural", "Mentoring", "CY2A"],
+    photo: "/cyberweb/bhoomika.jpg",
+    cv: "",
+  },
+  {
     name: "Rakshitha G B",
     role: "Faculty Member",
     focus: "Program support, technical instruction, and academic coordination.",

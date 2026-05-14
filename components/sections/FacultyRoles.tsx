@@ -1,0 +1,153 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { User, BookOpen, Star, ShieldCheck } from "lucide-react";
+
+export const facultyRolesData = [
+  {
+    name: "Dr. ARUNA KUMAR B T",
+    designation: "Associate Professor & HOD",
+    photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774188001/faculty/nmr2zfqaftglonhpsiuy.jpg",
+    roleInDept: "HOD, Research",
+    additionalResponsibility: "Dept. Website, MOUs & Hackathon"
+  },
+  {
+    name: "Dr. RACHANA P G",
+    designation: "Asst. Professor",
+    photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774186811/faculty/y6ae6gg2x3tubgga7mf7.jpg",
+    roleInDept: "Placement & CIGSRD, WEC",
+    additionalResponsibility: "Mentor-IY2A & PBL Coordinator-2nd Sem"
+  },
+  {
+    name: "Ms. NAYANA M R",
+    designation: "Asst. Professor",
+    photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774186833/faculty/zhunb2wmcsbbk5drsym8.png",
+    roleInDept: "Academic & ERP",
+    additionalResponsibility: "Mentor & Class Teacher - IY2A & PBL Coordinator-4th Sem"
+  },
+  {
+    name: "Ms. RAKSHITHA G B",
+    designation: "Tutor",
+    photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774186941/faculty/ltzzcjpykc3lllet4cw0.jpg",
+    roleInDept: "LEAP & TC",
+    additionalResponsibility: "Mentor & Class Teacher - CY1A"
+  },
+  {
+    name: "Ms. SWATHI A",
+    designation: "Asst. Professor",
+    photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774186868/faculty/qp99ezxxg2anwihurhbc.png",
+    roleInDept: "Internal Assessment (IA)",
+    additionalResponsibility: "Mentor & Class Teacher - CY2A"
+  },
+  {
+    name: "MR. PAVAN N T",
+    designation: "Tutor",
+    photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774186979/faculty/fsmxyknyr8ke2wzpep5j.png",
+    roleInDept: "Admission, IQAC",
+    additionalResponsibility: "Mentor - CY2B"
+  },
+  {
+    name: "Ms. SHWETHA D S",
+    designation: "Asst. Professor",
+    photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774186907/faculty/fa7dhkpotokr0smvrvqk.png",
+    roleInDept: "Idea Lab, NCC & NSS & Sports",
+    additionalResponsibility: "Mentor & Class Teacher - CY2B"
+  },
+  {
+    name: "Ms. MADHU M C",
+    designation: "Asst. Professor",
+    photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774936613/faculty/1000047973_jpg_1774936613.jpg",
+    roleInDept: "EMS, Student Affairs & SS",
+    additionalResponsibility: "Mentor & Class Teacher - IY1A"
+  },
+  {
+    name: "HARDIK B",
+    designation: "Asst. Professor",
+    photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774936572/faculty/1000047972_jpg_1774936572.jpg",
+    roleInDept: "Admission, IQAC",
+    additionalResponsibility: "Mentor - IY1A, PBL-6th Sem"
+  },
+  {
+    name: "VIDYA H G",
+    designation: "Asst. Professor",
+    photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774936588/faculty/1000047974_jpg_1774936588.jpg",
+    roleInDept: "Micro-Credentials",
+    additionalResponsibility: "Mentor and Class Teacher 6th"
+  },
+  {
+    name: "Ms. BHOOMIKA G S",
+    designation: "Asst. Professor",
+    photo: "/cyberweb/bhoomika.jpg",
+    roleInDept: "Cultural",
+    additionalResponsibility: "Mentor & Class Teacher - CY2A"
+  }
+];
+
+export default function FacultyRoles() {
+  return (
+    <section id="faculty-roles" className="py-24 px-6 lg:px-16 bg-slate-50 border-t border-slate-200 overflow-hidden">
+      <div className="max-w-[1400px] mx-auto">
+        <div className="text-center mb-16">
+          <p className="text-sm font-bold uppercase tracking-widest text-text-muted mb-2">Department Structure</p>
+          <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-text-primary">
+            Roles of <span className="text-neon-cyan">Faculty</span>
+          </h2>
+        </div>
+
+        <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200 overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="bg-slate-100 border-b border-slate-200 text-sm md:text-base font-orbitron text-text-primary uppercase tracking-wider">
+                  <th className="p-6 font-bold w-16 text-center">Sl No.</th>
+                  <th className="p-6 font-bold w-1/4">Staff Name & Photo</th>
+                  <th className="p-6 font-bold w-1/4">Role in Dept.</th>
+                  <th className="p-6 font-bold w-1/3">Additional Responsibility</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {facultyRolesData.map((staff, idx) => (
+                  <motion.tr 
+                    key={staff.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: idx * 0.05 }}
+                    viewport={{ once: true }}
+                    className="hover:bg-slate-50/80 transition-colors group"
+                  >
+                    <td className="p-6 text-center font-bold text-slate-400">
+                      {idx + 1}
+                    </td>
+                    <td className="p-6">
+                      <div className="flex items-center gap-4">
+                        <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-transparent group-hover:border-neon-cyan transition-colors shadow-sm shrink-0">
+                          <img src={staff.photo} alt={staff.name} className="w-full h-full object-cover" />
+                        </div>
+                        <div>
+                          <div className="font-bold text-text-primary text-base md:text-lg mb-0.5">{staff.name}</div>
+                          <div className="text-sm text-neon-cyan font-medium">{staff.designation}</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="p-6">
+                      <div className="flex items-start gap-3">
+                        <ShieldCheck className="w-5 h-5 text-neon-magenta shrink-0 mt-0.5 opacity-70" />
+                        <span className="font-medium text-text-primary/80 leading-relaxed">{staff.roleInDept}</span>
+                      </div>
+                    </td>
+                    <td className="p-6">
+                      <div className="flex items-start gap-3">
+                        <Star className="w-5 h-5 text-neon-green shrink-0 mt-0.5 opacity-70" />
+                        <span className="font-medium text-text-primary/80 leading-relaxed">{staff.additionalResponsibility}</span>
+                      </div>
+                    </td>
+                  </motion.tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
