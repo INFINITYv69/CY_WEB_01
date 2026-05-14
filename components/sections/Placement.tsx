@@ -21,17 +21,17 @@ export default function Placement() {
           </div>
 
           <div className="w-full lg:w-96">
-            <div className="p-8 bg-cyber-panel border border-neon-magenta/30 rounded-3xl relative overflow-hidden group">
+            <div className="p-8 bg-white border border-sky-100 rounded-3xl relative overflow-hidden group shadow-[0_8px_30px_rgba(14,165,233,0.08)] hover:shadow-[0_18px_50px_rgba(14,165,233,0.15)] hover:border-sky-300 transition-all duration-300">
               <div className="flex flex-col items-center gap-6 mb-8 text-center">
-                <div className="relative w-40 h-40 rounded-full overflow-hidden border-2 border-neon-magenta/50 shadow-lg shrink-0">
+                <div className="relative w-40 h-40 rounded-full overflow-hidden border-[6px] border-sky-50 shadow-[0_0_20px_rgba(14,165,233,0.15)] shrink-0">
                   <img src="https://cy-iy.vercel.app/static/Rachana_faculty.jpeg" alt="Dr. Rachana P G" className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500" />
                 </div>
                 <div>
-                  <h4 className="font-orbitron font-bold text-text-primary text-xl">Dr. Rachana P G</h4>
-                  <p className="text-xs font-mono text-neon-magenta uppercase tracking-widest">Placement Coordinator</p>
+                  <h4 className="font-orbitron font-bold text-slate-800 text-xl">Dr. Rachana P G</h4>
+                  <p className="text-xs font-bold font-mono text-sky-600 uppercase tracking-widest mt-1">Placement Coordinator</p>
                 </div>
               </div>
-              <div className="space-y-2 font-mono text-[10px] text-text-muted">
+              <div className="space-y-2 font-mono text-sm text-slate-600 mt-6 pt-4 border-t border-slate-100">
                 <p>Tel: +91 63606 01253</p>
                 <p>Email: rachanapg@gmit.ac.in</p>
               </div>

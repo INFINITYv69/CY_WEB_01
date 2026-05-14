@@ -34,15 +34,15 @@ export function DQAC() {
             ))}
           </div>
         </div>
-        <div className="w-full h-full p-8 bg-cyber-panel border border-neon-cyan/20 rounded-3xl relative group flex flex-col justify-center items-center text-center">
-          <div className="relative w-40 h-40 rounded-full overflow-hidden border-2 border-neon-cyan/50 shadow-lg shrink-0 mb-6">
+        <div className="w-full h-full p-8 bg-white border border-sky-100 rounded-3xl relative group flex flex-col justify-center items-center text-center shadow-[0_8px_30px_rgba(14,165,233,0.08)] hover:shadow-[0_18px_50px_rgba(14,165,233,0.15)] hover:border-sky-300 transition-all duration-300">
+          <div className="relative w-40 h-40 rounded-full overflow-hidden border-[6px] border-sky-50 shadow-[0_0_20px_rgba(14,165,233,0.15)] shrink-0 mb-6">
             <img src="https://cy-iy.vercel.app/static/pavan_faculty.png" alt="Mr. Pavan Kumar N T" className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500" />
           </div>
-          <h4 className="font-orbitron font-bold text-text-primary text-xl md:text-2xl mb-2">Mr. Pavan Kumar N T</h4>
-          <p className="text-neon-cyan text-sm tracking-widest uppercase font-bold mb-6">DQAC Coordinator</p>
-          <div className="space-y-3 text-text-muted font-mono text-sm">
-            <div className="flex items-center justify-center gap-2"><Phone size={14} className="text-neon-cyan" /> +91 9113283741</div>
-            <div className="flex items-center justify-center gap-2"><Mail size={14} className="text-neon-cyan" /> pavankumaracharya007@gmail.com</div>
+          <h4 className="font-orbitron font-bold text-slate-800 text-xl md:text-2xl mb-2">{/* ... */}Mr. Pavan Kumar N T</h4>
+          <p className="text-sky-600 text-sm tracking-widest uppercase font-bold mb-6">DQAC Coordinator</p>
+          <div className="space-y-3 text-slate-600 font-mono text-sm">
+            <div className="flex items-center justify-center gap-2"><Phone size={16} className="text-sky-500" /> +91 9113283741</div>
+            <div className="flex items-center justify-center gap-2"><Mail size={16} className="text-sky-500" /> pavankumaracharya007@gmail.com</div>
           </div>
         </div>
       </div>
@@ -64,17 +64,17 @@ export function Research() {
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[420px_1fr]">
         <div>
-          <div className="h-full p-8 bg-cyber-panel border border-neon-magenta/20 rounded-3xl relative group overflow-hidden">
+          <div className="h-full p-8 bg-white border border-sky-100 rounded-3xl relative group overflow-hidden shadow-[0_8px_30px_rgba(14,165,233,0.08)] hover:shadow-[0_18px_50px_rgba(14,165,233,0.15)] hover:border-sky-300 transition-all duration-300">
             <div className="relative z-10 flex flex-col items-center text-center">
-              <div className="relative w-40 h-40 rounded-full overflow-hidden border-2 border-neon-magenta/50 mb-6 shadow-lg shrink-0">
+              <div className="relative w-40 h-40 rounded-full overflow-hidden border-[6px] border-sky-50 mb-6 shadow-[0_0_20px_rgba(14,165,233,0.15)] shrink-0">
                 <img src="https://res.cloudinary.com/dkg60zkba/image/upload/v1774188001/faculty/nmr2zfqaftglonhpsiuy.jpg" alt="Dr. Aruna Kumar B T" className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500" />
               </div>
-              <h4 className="font-orbitron font-bold text-text-primary mb-2 text-xl md:text-2xl">Dr. Aruna Kumar B T</h4>
-              <p className="font-share-tech text-sm md:text-lg text-text-muted mb-6">Research Coordinator</p>
-              <div className="space-y-2 font-mono text-[10px] md:text-sm text-neon-magenta">
+              <h4 className="font-orbitron font-bold text-slate-800 mb-2 text-xl md:text-2xl">Dr. Aruna Kumar B T</h4>
+              <p className="font-share-tech text-sm md:text-lg text-sky-600 mb-6 font-bold uppercase tracking-widest">Research Coordinator</p>
+              <div className="space-y-2 font-mono text-[10px] md:text-sm text-slate-600">
                 <p>Tel: +91 98765 43210</p>
                 <p>Email: hod.iycy@gmu.ac.in</p>
-                <p>Focus: Advancing knowledge in cybersecurity</p>
+                <p className="mt-4 pt-4 border-t border-slate-100">Focus: Advancing knowledge in cybersecurity</p>
               </div>
             </div>
           </div>

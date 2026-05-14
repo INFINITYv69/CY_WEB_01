@@ -6,13 +6,13 @@ import { faculty } from "@/lib/siteData";
 
 export default function Faculty() {
   return (
-    <section id="faculty" className="relative overflow-hidden bg-cyber-dark/25 px-6 py-24 lg:px-24">
-      <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,rgba(0,245,255,0.04),transparent_35%,rgba(255,0,255,0.035))]" />
+    <section id="faculty" className="relative overflow-hidden bg-slate-50 px-6 py-24 lg:px-24">
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.05)_0%,transparent_100%)]" />
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="mb-12 max-w-3xl">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.32em] text-neon-green">Department Team</p>
-          <h2 className="text-4xl font-bold md:text-6xl">
-            <span className="text-neon-cyan">Faculty</span>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.32em] text-slate-500">Department Team</p>
+          <h2 className="text-4xl font-bold md:text-6xl text-slate-800">
+            Roles of <span className="text-sky-600">Faculty</span>
           </h2>
         </div>
 
@@ -24,9 +24,9 @@ export default function Faculty() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.04, duration: 0.35 }}
-              className="group overflow-hidden rounded-3xl border border-white/10 bg-cyber-panel/85 transition-all duration-300 hover:-translate-y-2 hover:border-neon-cyan/50 hover:shadow-[0_18px_50px_rgba(0,245,255,0.15)] flex flex-col items-center text-center pb-6"
+              className="group overflow-hidden rounded-3xl border border-sky-100 bg-white transition-all duration-300 hover:-translate-y-2 hover:border-sky-300 hover:shadow-[0_18px_50px_rgba(14,165,233,0.15)] flex flex-col items-center text-center pb-6 shadow-[0_8px_30px_rgba(14,165,233,0.04)]"
             >
-              <div className="relative w-40 h-40 mt-8 mb-4 overflow-hidden rounded-full border-2 border-neon-cyan/30 bg-cyber-black shadow-[0_0_15px_rgba(0,245,255,0.1)]">
+              <div className="relative w-40 h-40 mt-8 mb-4 overflow-hidden rounded-full border-[6px] border-sky-50 bg-white shadow-[0_0_20px_rgba(14,165,233,0.15)]">
                 <Image
                   src={member.photo}
                   alt={member.name}
@@ -39,8 +39,8 @@ export default function Faculty() {
 
               <div className="px-5 flex flex-col flex-1 items-center justify-between w-full">
                 <div>
-                  <h3 className="text-xl font-bold leading-snug text-text-primary mb-1">{member.name}</h3>
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-neon-cyan/85">
+                  <h3 className="text-xl font-bold leading-snug text-slate-800 mb-1">{member.name}</h3>
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-sky-600">
                     {member.role}
                   </p>
                 </div>
@@ -49,7 +49,7 @@ export default function Faculty() {
                     href={member.cv} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="mt-6 px-5 py-2 text-[10px] font-bold text-cyber-black uppercase tracking-widest bg-neon-cyan rounded-full hover:bg-white hover:shadow-[0_0_15px_#00f5ff] transition-all cursor-pointer"
+                    className="mt-6 px-6 py-2.5 text-[11px] font-bold text-white uppercase tracking-widest bg-sky-500 rounded-full hover:bg-sky-600 hover:shadow-[0_8px_20px_rgba(14,165,233,0.3)] transition-all cursor-pointer"
                   >
                     View Profile
                   </a>

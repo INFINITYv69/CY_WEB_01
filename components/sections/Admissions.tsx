@@ -13,24 +13,24 @@ export default function Admissions() {
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full max-w-5xl">
           {/* Coordinator Card */}
-          <div className="p-8 bg-cyber-panel border border-neon-cyan/30 rounded-3xl relative overflow-hidden group flex flex-col justify-center">
+          <div className="p-8 bg-white border border-sky-100 rounded-3xl relative overflow-hidden group flex flex-col justify-center shadow-[0_8px_30px_rgba(14,165,233,0.08)] hover:shadow-[0_18px_50px_rgba(14,165,233,0.15)] hover:border-sky-300 transition-all duration-300">
             <div className="flex flex-col md:flex-row items-center gap-6 mb-8 text-center md:text-left">
-              <div className="relative w-40 h-40 rounded-full overflow-hidden border-2 border-neon-cyan/50 shadow-lg shrink-0">
+              <div className="relative w-40 h-40 rounded-full overflow-hidden border-[6px] border-sky-50 shadow-[0_0_20px_rgba(14,165,233,0.15)] shrink-0">
                 <img src="https://cy-iy.vercel.app/static/pavan_faculty.png" alt="Mr. Pavan Kumar N T" className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500" />
               </div>
               <div>
-                <h4 className="font-orbitron font-bold text-text-primary text-xl mb-1">Mr. Pavan Kumar N T</h4>
-                <p className="text-xs font-mono text-neon-cyan uppercase tracking-widest">Admission Coordinator</p>
+                <h4 className="font-orbitron font-bold text-slate-800 text-xl mb-1">Mr. Pavan Kumar N T</h4>
+                <p className="text-xs font-bold font-mono text-sky-600 uppercase tracking-widest">Admission Coordinator</p>
               </div>
             </div>
             
-            <div className="space-y-4 font-mono text-sm md:text-base text-text-muted flex flex-col items-center md:items-start">
+            <div className="space-y-4 font-mono text-sm md:text-base text-slate-600 flex flex-col items-center md:items-start pt-4 border-t border-slate-100">
               <div className="flex items-center gap-3">
-                <Phone size={16} className="text-neon-cyan" />
+                <Phone size={18} className="text-sky-500" />
                 <span>+91 9113283741</span>
               </div>
               <div className="flex items-center gap-3">
-                <Mail size={16} className="text-neon-cyan" />
+                <Mail size={18} className="text-sky-500" />
                 <span>pavankumaracharya007@gmail.com</span>
               </div>
             </div>
