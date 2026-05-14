@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Mail, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -53,18 +53,31 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Desktop Links */}
-        <div className="hidden xl:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
-              href={link.href}
-              className="relative group py-2 text-lg font-orbitron font-bold text-text-primary/90 hover:text-neon-cyan transition-colors"
-            >
-              {link.name}
-              <span className="absolute bottom-0 left-1/2 w-0 h-[3px] bg-neon-cyan -translate-x-1/2 group-hover:w-full transition-all duration-300 rounded-full" />
-            </Link>
-          ))}
+        {/* Right Side */}
+        <div className="hidden xl:flex flex-col items-end gap-3 mt-2">
+          {/* Contact Info */}
+          <div className="flex items-center gap-6 text-sm font-share-tech font-bold text-text-muted">
+            <a href="mailto:hod.iycy@gmu.ac.in" className="flex items-center gap-2 hover:text-neon-cyan transition-colors">
+              <Mail size={16} /> hod.iycy@gmu.ac.in
+            </a>
+            <a href="tel:+919945221208" className="flex items-center gap-2 hover:text-neon-cyan transition-colors">
+              <Phone size={16} /> +91 99452 21208
+            </a>
+          </div>
+
+          {/* Desktop Links */}
+          <div className="flex items-center gap-6">
+            {navLinks.map((link) => (
+              <Link 
+                key={link.name} 
+                href={link.href}
+                className="relative group pb-1 text-lg font-orbitron font-bold text-text-primary/90 hover:text-neon-cyan transition-colors"
+              >
+                {link.name}
+                <span className="absolute bottom-0 left-1/2 w-0 h-[3px] bg-neon-cyan -translate-x-1/2 group-hover:w-full transition-all duration-300 rounded-full" />
+              </Link>
+            ))}
+          </div>
         </div>
 
         {/* Mobile Toggle */}
