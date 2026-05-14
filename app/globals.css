@@ -50,6 +50,12 @@
       radial-gradient(circle at 12% 8%, rgba(2, 132, 199, 0.05), transparent 28rem),
       radial-gradient(circle at 88% 18%, rgba(79, 70, 229, 0.04), transparent 26rem),
       #ffffff;
+    /* Custom sleek black cursor with white outline */
+    cursor: url('data:image/svg+xml;utf8,<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 2L18 9L12 11L9 18L4 2Z" fill="black" stroke="white" stroke-width="2" stroke-linejoin="round"/></svg>') 4 2, auto;
+  }
+  
+  a, button, [role="button"], input, select, textarea {
+    cursor: url('data:image/svg+xml;utf8,<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 2C9 1 10 1 11 2L12 7C13 7 14 7 15 8L18 13C19 15 17 18 14 18H9C5 18 4 15 5 12L8 5C9 4 10 4 10 5Z" fill="black" stroke="white" stroke-width="2" stroke-linejoin="round"/></svg>') 9 2, pointer !important;
   }
 
   h1, h2, h3, h4, h5, h6 {
