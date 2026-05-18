@@ -76,8 +76,8 @@ export function Research() {
               <h4 className="font-orbitron font-bold text-slate-800 mb-2 text-xl md:text-2xl">Dr. Aruna Kumar B T</h4>
               <p className="font-share-tech text-sm md:text-lg text-sky-600 mb-6 font-bold uppercase tracking-widest">Research Coordinator</p>
               <div className="space-y-2 font-mono text-[10px] md:text-sm text-slate-600">
-                <p>Tel: +91 98765 43210</p>
-                <p>Email: hod.iycy@gmu.ac.in</p>
+                <p>Tel: +91 99452 21208</p>
+                <p>Email: hod.cyiy@gmu.ac.in</p>
                 <p className="mt-4 pt-4 border-t border-slate-100">Focus: Advancing knowledge in cybersecurity</p>
               </div>
             </div>

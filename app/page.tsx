@@ -17,6 +17,7 @@ import Placement from "@/components/sections/Placement";
 import Admissions from "@/components/sections/Admissions";
 import { LearningResources, QuickAccess, StudentCorner } from "@/components/sections/AcademicResources";
 import { DQAC, Research } from "@/components/sections/SecondarySections";
+import Videos from "@/components/sections/Videos";
 import LoadingScreen from "@/components/ui/LoadingScreen";
 
 export default function Home() {
@@ -49,6 +50,7 @@ export default function Home() {
         <Research />
         <Placement />
         <Admissions />
+        <Videos />
       </main>
 
       {/* Global Progress Bar */}

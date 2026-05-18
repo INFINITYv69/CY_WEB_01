@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { User, BookOpen, Star, ShieldCheck, LayoutList } from "lucide-react";
+import { ShieldCheck, Star, LayoutList } from "lucide-react";
 
 export const facultyRolesData = [
   {
     name: "Dr. ARUNA KUMAR B T",
-    designation: "Associate Professor & HOD",
+    designation: "HOD & Associate Professor",
+    sub: "Dept. of CY & IY, GM University",
     photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774188001/faculty/nmr2zfqaftglonhpsiuy.jpg",
     roleInDept: "HOD, Research",
     additionalResponsibility: "Dept. Website, MOUs & Hackathon"
@@ -14,6 +15,7 @@ export const facultyRolesData = [
   {
     name: "Dr. RACHANA P G",
     designation: "Asst. Professor",
+    sub: "GM University",
     photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774186811/faculty/y6ae6gg2x3tubgga7mf7.jpg",
     roleInDept: "Placement & CIGSRD, WEC",
     additionalResponsibility: "Mentor-IY2A & PBL Coordinator-2nd Sem"
@@ -21,13 +23,15 @@ export const facultyRolesData = [
   {
     name: "Ms. NAYANA M R",
     designation: "Asst. Professor",
+    sub: "GM University",
     photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774186833/faculty/zhunb2wmcsbbk5drsym8.png",
     roleInDept: "Academic & ERP",
     additionalResponsibility: "Mentor & Class Teacher - IY2A & PBL Coordinator-4th Sem"
   },
   {
     name: "Ms. RAKSHITHA G B",
-    designation: "Tutor",
+    designation: "Faculty Member",
+    sub: "GM University",
     photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774186941/faculty/ltzzcjpykc3lllet4cw0.jpg",
     roleInDept: "LEAP & TC",
     additionalResponsibility: "Mentor & Class Teacher - CY1A"
@@ -35,13 +39,15 @@ export const facultyRolesData = [
   {
     name: "Ms. SWATHI A",
     designation: "Asst. Professor",
+    sub: "GM University",
     photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774186868/faculty/qp99ezxxg2anwihurhbc.png",
     roleInDept: "Internal Assessment (IA)",
     additionalResponsibility: "Mentor & Class Teacher - CY2A"
   },
   {
     name: "MR. PAVAN N T",
-    designation: "Tutor",
+    designation: "Faculty Member",
+    sub: "GM University",
     photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774186979/faculty/fsmxyknyr8ke2wzpep5j.png",
     roleInDept: "Admission, IQAC",
     additionalResponsibility: "Mentor - CY2B"
@@ -49,6 +55,7 @@ export const facultyRolesData = [
   {
     name: "Ms. SHWETHA D S",
     designation: "Asst. Professor",
+    sub: "GM University",
     photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774186907/faculty/fa7dhkpotokr0smvrvqk.png",
     roleInDept: "Idea Lab, NCC & NSS & Sports",
     additionalResponsibility: "Mentor & Class Teacher - CY2B"
@@ -56,6 +63,7 @@ export const facultyRolesData = [
   {
     name: "Ms. MADHU M C",
     designation: "Asst. Professor",
+    sub: "GM University",
     photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774936613/faculty/1000047973_jpg_1774936613.jpg",
     roleInDept: "EMS, Student Affairs & SS",
     additionalResponsibility: "Mentor & Class Teacher - IY1A"
@@ -63,6 +71,7 @@ export const facultyRolesData = [
   {
     name: "HARDIK B",
     designation: "Asst. Professor",
+    sub: "GM University",
     photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774936572/faculty/1000047972_jpg_1774936572.jpg",
     roleInDept: "Admission, IQAC",
     additionalResponsibility: "Mentor - IY1A, PBL-6th Sem"
@@ -70,6 +79,7 @@ export const facultyRolesData = [
   {
     name: "VIDYA H G",
     designation: "Asst. Professor",
+    sub: "GM University",
     photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774936588/faculty/1000047974_jpg_1774936588.jpg",
     roleInDept: "Micro-Credentials",
     additionalResponsibility: "Mentor and Class Teacher 6th"
@@ -77,6 +87,7 @@ export const facultyRolesData = [
   {
     name: "Ms. BHOOMIKA G S",
     designation: "Asst. Professor",
+    sub: "GM University",
     photo: "/cyberweb/bhoomika.jpg",
     roleInDept: "Cultural",
     additionalResponsibility: "Mentor & Class Teacher - CY2A"
@@ -100,10 +111,10 @@ export default function FacultyRoles() {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-slate-100 border-b border-slate-200 text-sm md:text-base font-orbitron text-text-primary uppercase tracking-wider">
-                  <th className="p-6 font-bold w-16 text-center">Sl No.</th>
-                  <th className="p-6 font-bold w-1/4">Staff Name & Photo</th>
-                  <th className="p-6 font-bold w-1/4">Role in Dept.</th>
-                  <th className="p-6 font-bold w-1/3">Additional Responsibility</th>
+                  <th className="py-4 px-3 font-bold w-10 text-center whitespace-nowrap">Sl.</th>
+                  <th className="py-4 px-4 font-bold">Staff Name & Photo</th>
+                  <th className="py-4 px-4 font-bold w-1/4">Role in Dept.</th>
+                  <th className="py-4 px-4 font-bold w-1/3">Additional Responsibility</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
@@ -116,32 +127,33 @@ export default function FacultyRoles() {
                     viewport={{ once: true }}
                     className="hover:bg-slate-50/80 transition-colors group"
                   >
-                    <td className="p-6 text-center font-bold text-slate-400">
+                    <td className="py-4 px-3 text-center font-bold text-slate-400 text-sm">
                       {idx + 1}
                     </td>
-                    <td className="p-6">
-                      <div className="flex items-center gap-4">
-                        <div className="relative w-14 h-14 rounded-full p-[2px] bg-gradient-to-tr from-blue-700 via-blue-500 to-cyan-400 shrink-0 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.4)] transition-all duration-300">
+                    <td className="py-4 px-4">
+                      <div className="flex items-center gap-3">
+                        <div className="relative w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-blue-700 via-blue-500 to-cyan-400 shrink-0 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.4)] transition-all duration-300">
                           <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-white bg-white">
                             <img src={staff.photo} alt={staff.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                           </div>
                         </div>
-                        <div>
-                          <div className="font-bold text-slate-800 text-base md:text-lg mb-0.5">{staff.name}</div>
-                          <div className="text-sm text-sky-600 font-medium tracking-wide">{staff.designation}</div>
+                        <div className="min-w-0">
+                          <div className="font-bold text-slate-800 text-sm md:text-base whitespace-nowrap">{staff.name}</div>
+                          <div className="text-xs text-sky-600 font-medium tracking-wide whitespace-nowrap">{staff.designation}</div>
+                          <div className="text-xs text-slate-400 whitespace-nowrap">{staff.sub}</div>
                         </div>
                       </div>
                     </td>
-                    <td className="p-6">
-                      <div className="flex items-start gap-3">
-                        <ShieldCheck className="w-5 h-5 text-neon-magenta shrink-0 mt-0.5 opacity-70" />
-                        <span className="font-medium text-text-primary/80 leading-relaxed">{staff.roleInDept}</span>
+                    <td className="py-4 px-4">
+                      <div className="flex items-start gap-2">
+                        <ShieldCheck className="w-4 h-4 text-neon-magenta shrink-0 mt-0.5 opacity-70" />
+                        <span className="font-medium text-text-primary/80 leading-relaxed text-sm">{staff.roleInDept}</span>
                       </div>
                     </td>
-                    <td className="p-6">
-                      <div className="flex items-start gap-3">
-                        <Star className="w-5 h-5 text-neon-green shrink-0 mt-0.5 opacity-70" />
-                        <span className="font-medium text-text-primary/80 leading-relaxed">{staff.additionalResponsibility}</span>
+                    <td className="py-4 px-4">
+                      <div className="flex items-start gap-2">
+                        <Star className="w-4 h-4 text-neon-green shrink-0 mt-0.5 opacity-70" />
+                        <span className="font-medium text-text-primary/80 leading-relaxed text-sm">{staff.additionalResponsibility}</span>
                       </div>
                     </td>
                   </motion.tr>

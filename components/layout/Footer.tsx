@@ -64,7 +64,7 @@ export default function Footer() {
             <div className="space-y-4 font-mono text-[10px] text-text-muted">
               <div className="flex items-center gap-3">
                 <Mail size={14} className="text-neon-cyan" />
-                <span>hod.iycy@gmu.ac.in</span>
+                <span>hod.cyiy@gmu.ac.in</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={14} className="text-neon-cyan" />

@@ -71,7 +71,7 @@ export default function HeroContent() {
             CYBER SECURITY
           </span>
           <span className="block text-text-primary">
-            & INFO SECURITY
+            & INFORMATION SECURITY
           </span>
         </h1>
 

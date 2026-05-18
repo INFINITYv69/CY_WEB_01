@@ -57,8 +57,8 @@ export default function Navbar() {
         <div className="hidden xl:flex flex-col items-end gap-3 mt-2">
           {/* Contact Info */}
           <div className="flex items-center gap-6 text-sm font-share-tech font-bold text-text-muted">
-            <a href="mailto:hod.iycy@gmu.ac.in" className="flex items-center gap-2 hover:text-neon-cyan transition-colors">
-              <Mail size={16} /> hod.iycy@gmu.ac.in
+            <a href="mailto:hod.cyiy@gmu.ac.in" className="flex items-center gap-2 hover:text-neon-cyan transition-colors">
+              <Mail size={16} /> hod.cyiy@gmu.ac.in
             </a>
             <a href="tel:+919945221208" className="flex items-center gap-2 hover:text-neon-cyan transition-colors">
               <Phone size={16} /> +91 99452 21208

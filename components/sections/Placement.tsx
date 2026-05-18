@@ -9,7 +9,7 @@ export default function Placement() {
           <div className="flex-1">
             <h2 className="text-4xl md:text-6xl font-orbitron font-bold mb-8 flex items-center gap-4">
               <Briefcase size={48} className="text-neon-magenta" />
-              <span className="text-neon-magenta">Placements</span>
+              <span className="text-neon-magenta">Placements & Internships</span>
             </h2>
             <p className="font-share-tech text-lg text-text-muted leading-relaxed">
               Our graduates are prepared to secure the digital world. With a strong focus on practical skills and industry certifications, we ensure 100% placement support for our students in top-tier organizations.
@@ -32,7 +32,7 @@ export default function Placement() {
                 </div>
                 <div>
                   <h4 className="font-orbitron font-bold text-slate-800 text-xl">Dr. Rachana P G</h4>
-                  <p className="text-xs font-bold font-mono text-sky-600 uppercase tracking-widest mt-1">Placement Coordinator</p>
+                  <p className="text-xs font-bold font-mono text-sky-600 uppercase tracking-widest mt-1">Placement & Internship Coordinator</p>
                 </div>
               </div>
               <div className="space-y-2 font-mono text-sm text-slate-600 mt-6 pt-4 border-t border-slate-100">

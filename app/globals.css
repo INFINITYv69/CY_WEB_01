@@ -39,13 +39,13 @@
 
 @layer base {
   html {
-    font-size: 18px; /* Increases root scaling by ~12.5% to make all fonts and spacing larger */
+    font-size: 16px; /* Standard base scale */
   }
 
   body {
     @apply bg-cyber-black text-text-primary font-share-tech overflow-x-hidden;
-    font-size: 1.125rem; /* Base paragraph size increased */
-    line-height: 1.7;
+    font-size: 1rem;
+    line-height: 1.65;
     background:
       radial-gradient(circle at 12% 8%, rgba(2, 132, 199, 0.05), transparent 28rem),
       radial-gradient(circle at 88% 18%, rgba(79, 70, 229, 0.04), transparent 26rem),

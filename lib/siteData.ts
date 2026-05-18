@@ -56,7 +56,7 @@ export const galleryImages = [
 export const faculty = [
   {
     name: "Dr. Aruna Kumar B T",
-    role: "Associate Professor",
+    role: "HOD & Associate Professor",
     focus: "Cyber defense leadership, secure systems, and department mentoring.",
     signal: "HOD_NODE",
     tags: ["Cyber Defense", "Security Strategy", "Mentoring"],
@@ -124,7 +124,7 @@ export const faculty = [
     signal: "TUTOR_NODE",
     tags: ["Tutorials", "Guidance", "Practice"],
     photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774936588/faculty/1000047974_jpg_1774936588.jpg",
-    cv: "",
+    cv: "/cyberweb/vidya.pdf",
   },
   {
     name: "Bhoomika G S",
@@ -133,7 +133,7 @@ export const faculty = [
     signal: "FACULTY_NODE",
     tags: ["Cultural", "Mentoring", "CY2A"],
     photo: "/cyberweb/bhoomika.jpg",
-    cv: "",
+    cv: "/cyberweb/bhoomika.pdf",
   },
   {
     name: "Rakshitha G B",

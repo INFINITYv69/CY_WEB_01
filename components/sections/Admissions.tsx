@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, ExternalLink, GraduationCap } from "lucide-react";
+import { Mail, Phone, ExternalLink, GraduationCap, QrCode } from "lucide-react";
+import Image from "next/image";
 
 export default function Admissions() {
   return (
@@ -12,7 +13,7 @@ export default function Admissions() {
           <span className="text-neon-cyan">Admissions</span>
         </h2>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full max-w-5xl">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 w-full max-w-6xl">
           {/* Coordinator Card */}
           <div className="p-8 bg-gradient-to-b from-yellow-50 to-amber-100/50 border-2 border-amber-200/60 rounded-3xl relative overflow-hidden group flex flex-col justify-center shadow-lg shadow-amber-900/5 hover:shadow-[0_18px_50px_rgba(251,191,36,0.2)] hover:border-amber-400 transition-all duration-300">
             <div className="flex flex-col md:flex-row items-center gap-6 mb-8 text-center md:text-left">
@@ -24,6 +25,7 @@ export default function Admissions() {
               <div>
                 <h4 className="font-orbitron font-bold text-slate-800 text-xl mb-1">Mr. Pavan Kumar N T</h4>
                 <p className="text-xs font-bold font-mono text-sky-600 uppercase tracking-widest">Admission Coordinator</p>
+                <p className="text-xs font-mono text-slate-500 mt-0.5">Faculty Member, GM University</p>
               </div>
             </div>
             
@@ -37,6 +39,21 @@ export default function Admissions() {
                 <span>pavankumaracharya007@gmail.com</span>
               </div>
             </div>
+          </div>
+
+          {/* QR Code Card */}
+          <div className="flex flex-col justify-center items-center p-8 bg-gradient-to-b from-yellow-50 to-amber-100/50 border-2 border-amber-200/60 rounded-3xl text-center shadow-lg shadow-amber-900/5 hover:shadow-[0_18px_50px_rgba(251,191,36,0.2)] hover:border-amber-400 transition-all duration-300 group">
+            <QrCode size={28} className="text-sky-600 mb-3" />
+            <p className="text-xs font-bold font-mono text-sky-600 uppercase tracking-widest mb-4">Scan for Admission Query</p>
+            <div className="relative w-44 h-44 rounded-2xl overflow-hidden border-4 border-white shadow-lg group-hover:shadow-[0_0_25px_rgba(14,165,233,0.3)] transition-all duration-500">
+              <Image
+                src="/cyberweb/qr_admission.png"
+                alt="Admission Query QR Code"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <p className="text-xs text-slate-500 mt-3 font-mono">Scan with your camera</p>
           </div>
 
           {/* Admission Link Call to Action */}

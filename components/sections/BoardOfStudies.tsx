@@ -4,18 +4,18 @@ import { motion } from "framer-motion";
 import { FileText, Users } from "lucide-react";
 
 const internalMembers = [
-  { name: "Dr. S R Shankapal", role: "Vice Chancellor", image: "/cyberweb/shankpal.jpg" },
-  { name: "Dr. Venu Gopala Rao", role: "Pro Vice Chancellor", image: "/cyberweb/Venu Gopala Rao.jpg" },
-  { name: "Dr. Sanjay Pandey", role: "Director", image: "/cyberweb/sanjay pandey.jpg" },
-  { name: "Dr. Aruna Kumar B T", role: "HOD", image: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774188001/faculty/nmr2zfqaftglonhpsiuy.jpg" },
+  { name: "Dr. S R Shankapal", role: "Vice Chancellor", sub: "GM University", image: "/cyberweb/shankpal.jpg" },
+  { name: "Dr. Venu Gopala Rao", role: "Pro Vice Chancellor", sub: "GM University", image: "/cyberweb/Venu Gopala Rao.jpg" },
+  { name: "Dr. Sanjay Pandey", role: "Director", sub: "GM University", image: "/cyberweb/sanjay pandey.jpg" },
+  { name: "Dr. Aruna Kumar B T", role: "HOD & Associate Professor", sub: "Dept. of CY & IY, GM University", image: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774188001/faculty/nmr2zfqaftglonhpsiuy.jpg" },
 ];
 
 const externalMembers = [
-  { name: "Dr. Shreedhar", role: "External Member", image: "/cyberweb/shreedhar.jpg" },
-  { name: "Dr. B.N. Veerappa", role: "External Member", image: "/cyberweb/bn veerappa.jpg" },
+  { name: "Dr. Shreedhar", role: "Professor", sub: "Dept. of CSE, UBDTCE, Davangere", image: "/cyberweb/shreedhar.jpg" },
+  { name: "Dr. B.N. Veerappa", role: "Professor & HOD", sub: "Dept. of ISE, Akshaya Institute of Technology, Tumakuru", image: "/cyberweb/bn veerappa.jpg" },
 ];
 
-function MemberCard({ member, delay }: { member: any, delay: number }) {
+function MemberCard({ member, delay }: { member: { name: string; role: string; sub: string; image: string }, delay: number }) {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -30,7 +30,8 @@ function MemberCard({ member, delay }: { member: any, delay: number }) {
         </div>
       </div>
       <h4 className="font-orbitron font-bold text-slate-800 text-lg mb-1">{member.name}</h4>
-      <p className="text-sm font-bold text-sky-600 tracking-wider uppercase">{member.role}</p>
+      <p className="text-sm font-bold text-sky-600 tracking-wider uppercase leading-snug">{member.role}</p>
+      <p className="text-xs text-slate-500 mt-1 leading-snug">{member.sub}</p>
     </motion.div>
   );
 }
@@ -61,7 +62,7 @@ export default function BoardOfStudies() {
 
         <div className="mb-16">
           <h3 className="text-2xl font-bold font-orbitron text-slate-800 mb-8 border-b border-slate-200 pb-4 text-center md:text-left">External Members</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {externalMembers.map((member, idx) => (
               <MemberCard key={member.name} member={member} delay={idx * 0.1} />
             ))}
