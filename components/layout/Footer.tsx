@@ -28,14 +28,14 @@ export default function Footer() {
                 />
               </div>
               <div className="font-orbitron font-bold">
-                <p className="text-neon-cyan text-xl md:text-2xl">GM UNIVERSITY</p>
-                <p className="text-xs md:text-sm text-text-muted">DEPT OF CYBER SECURITY</p>
+                <p className="text-neon-cyan text-2xl md:text-3xl">GM UNIVERSITY</p>
+                <p className="text-sm md:text-base text-text-muted">DEPT OF CYBER SECURITY</p>
               </div>
             </div>
-            <p className="font-share-tech text-base md:text-lg text-text-muted leading-relaxed">
+            <p className="font-share-tech text-lg md:text-xl text-text-muted leading-relaxed">
               Empowering the next generation of security professionals through innovation, ethics, and technical mastery.
             </p>
-            <div className="flex items-center gap-2 text-neon-green font-mono text-xs md:text-sm uppercase tracking-tighter">
+            <div className="flex items-center gap-2 text-neon-green font-mono text-sm md:text-base uppercase tracking-tighter">
               <span className="w-2 h-2 rounded-full bg-neon-green animate-pulse" />
               Department website online
             </div>
@@ -43,13 +43,13 @@ export default function Footer() {
 
           {/* Center: Links */}
           <div>
-            <h4 className="font-orbitron font-bold text-text-primary text-lg md:text-xl mb-8 tracking-[0.2em]">Quick Links</h4>
+            <h4 className="font-orbitron font-bold text-text-primary text-xl md:text-2xl mb-8 tracking-[0.2em]">Quick Links</h4>
             <div className="grid grid-cols-2 gap-4">
               {["Achievements", "Vision", "Gallery", "About", "Programs", "Faculty"].map((link) => (
                 <Link 
                   key={link} 
                   href={`#${link.toLowerCase().replace(" ", "-")}`}
-                  className="font-mono text-sm md:text-base text-text-muted hover:text-neon-cyan transition-colors flex items-center gap-2 group"
+                  className="font-mono text-base md:text-lg text-text-muted hover:text-neon-cyan transition-colors flex items-center gap-2 group"
                 >
                   <span className="text-neon-cyan opacity-0 group-hover:opacity-100 transition-opacity">{`>`}</span>
                   {link}
@@ -60,18 +60,18 @@ export default function Footer() {
 
           {/* Right: Contact */}
           <div className="space-y-4">
-            <h4 className="font-orbitron font-bold text-text-primary text-lg md:text-xl mb-8 tracking-[0.2em]">Contact Info</h4>
-            <div className="space-y-4 font-mono text-sm md:text-base text-text-muted">
+            <h4 className="font-orbitron font-bold text-text-primary text-xl md:text-2xl mb-8 tracking-[0.2em]">Contact Info</h4>
+            <div className="space-y-4 font-mono text-base md:text-lg text-text-muted">
               <div className="flex items-center gap-3">
-                <Mail size={18} className="text-neon-cyan" />
+                <Mail size={22} className="text-neon-cyan" />
                 <span>hod.cyiy@gmu.ac.in</span>
               </div>
               <div className="flex items-center gap-3">
-                <Phone size={18} className="text-neon-cyan" />
+                <Phone size={22} className="text-neon-cyan" />
                 <span>+91 99452 21208</span>
               </div>
               <div className="flex items-start gap-3">
-                <MapPin size={18} className="text-neon-cyan shrink-0" />
+                <MapPin size={22} className="text-neon-cyan shrink-0" />
                 <span>Davangere, Karnataka, India - 577006</span>
               </div>
             </div>
@@ -81,10 +81,10 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="font-mono text-xs md:text-sm text-text-muted text-center md:text-left">
+          <p className="font-mono text-sm md:text-base text-text-muted text-center md:text-left">
             © 2025 GM University. All rights reserved.
           </p>
-          <p className="font-mono text-xs md:text-sm text-neon-magenta tracking-widest uppercase">
+          <p className="font-mono text-sm md:text-base text-neon-magenta tracking-widest uppercase">
             Designed and developed for the Department of Cybersecurity
           </p>
         </div>
