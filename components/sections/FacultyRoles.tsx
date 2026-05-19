@@ -111,10 +111,10 @@ export default function FacultyRoles() {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-slate-100 border-b border-slate-200 text-sm md:text-base font-orbitron text-text-primary uppercase tracking-wider">
-                  <th className="py-4 px-3 font-bold w-10 text-center whitespace-nowrap">Sl.</th>
-                  <th className="py-4 px-4 font-bold">Staff Name & Photo</th>
-                  <th className="py-4 px-4 font-bold w-1/4">Role in Dept.</th>
-                  <th className="py-4 px-4 font-bold w-1/3">Additional Responsibility</th>
+                  <th className="py-4 px-3 font-bold w-12 text-center whitespace-nowrap">Sl.</th>
+                  <th className="py-4 px-4 font-bold w-[30%]">Staff Name & Photo</th>
+                  <th className="py-4 px-4 font-bold w-[25%]">Role in Dept.</th>
+                  <th className="py-4 px-4 font-bold w-[45%]">Additional Responsibility</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
