@@ -82,14 +82,20 @@ function BulletPanel({ panel, delay }: { panel: PanelData; delay: number }) {
           {panel.title}
         </div>
 
-        <ul className="space-y-3">
-          {panel.points.map((point, i) => (
-            <li key={i} className="flex items-start gap-3 text-text-primary/80">
-              <span className={`mt-1.5 w-2 h-2 rounded-full shrink-0 ${panel.accent} bg-current`} />
-              <span>{point}</span>
-            </li>
-          ))}
-        </ul>
+        {panel.id === "Vision" ? (
+          <p className="text-text-primary/85 leading-relaxed text-justify text-base">
+            {panel.points.join(" ")}
+          </p>
+        ) : (
+          <ul className="space-y-3">
+            {panel.points.map((point, i) => (
+              <li key={i} className="flex items-start gap-3 text-text-primary/80">
+                <span className={`mt-1.5 w-2 h-2 rounded-full shrink-0 ${panel.accent} bg-current`} />
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
 
       {/* Background Decorative Grid */}

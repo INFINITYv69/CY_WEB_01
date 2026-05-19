@@ -106,7 +106,7 @@ export const faculty = [
     signal: "TUTOR_NODE",
     tags: ["Skill Building", "Labs", "Readiness"],
     photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774936613/faculty/1000047973_jpg_1774936613.jpg",
-    cv: "",
+    cv: "/cyberweb/madhu.pdf",
   },
   {
     name: "Hardik B",
@@ -115,7 +115,7 @@ export const faculty = [
     signal: "TUTOR_NODE",
     tags: ["Labs", "Practice", "Support"],
     photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774936572/faculty/1000047972_jpg_1774936572.jpg",
-    cv: "",
+    cv: "/cyberweb/hardik.pdf",
   },
   {
     name: "Vidya H G",
