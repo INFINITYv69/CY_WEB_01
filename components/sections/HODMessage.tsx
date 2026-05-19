@@ -44,7 +44,7 @@ export default function HODMessage() {
             {/* Signature & Info Block directly under the photo */}
             <div className="text-center mt-6">
               <h4 className="font-orbitron font-bold text-slate-800 text-xl md:text-2xl">Dr. Aruna Kumar B T</h4>
-              <p className="text-sm md:text-base text-sky-600 font-bold uppercase tracking-wider mt-1.5">HOD &amp; Associate Professor</p>
+              <p className="text-sm md:text-base text-sky-600 font-bold uppercase tracking-wider mt-1.5">Associate Professor &amp; HOD</p>
               <p className="text-base md:text-lg text-slate-500 font-semibold tracking-wide mt-2">Dept. of CY &amp; IY</p>
             </div>
           </div>

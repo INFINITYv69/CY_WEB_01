@@ -56,7 +56,7 @@ export const galleryImages = [
 export const faculty = [
   {
     name: "Dr. Aruna Kumar B T",
-    role: "HOD & Associate Professor",
+    role: "Associate Professor & HOD",
     focus: "Cyber defense leadership, secure systems, and department mentoring.",
     signal: "HOD_NODE",
     tags: ["Cyber Defense", "Security Strategy", "Mentoring"],

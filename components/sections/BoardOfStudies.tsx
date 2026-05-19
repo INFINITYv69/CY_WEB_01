@@ -7,7 +7,7 @@ const internalMembers = [
   { name: "Dr. S R Shankapal", role: "Vice Chancellor", sub: "GM University", image: "/cyberweb/shankpal.jpg" },
   { name: "Dr. Venu Gopala Rao", role: "Pro Vice Chancellor", sub: "GM University", image: "/cyberweb/Venu Gopala Rao.jpg" },
   { name: "Dr. Sanjay Pandey", role: "Director", sub: "GM University", image: "/cyberweb/sanjay pandey.jpg" },
-  { name: "Dr. Aruna Kumar B T", role: "HOD & Associate Professor", sub: "Dept. of CY & IY, GM University", image: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774188001/faculty/nmr2zfqaftglonhpsiuy.jpg" },
+  { name: "Dr. Aruna Kumar B T", role: "Associate Professor & HOD", sub: "Dept. of CY & IY, GM University", image: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774188001/faculty/nmr2zfqaftglonhpsiuy.jpg" },
 ];
 
 const externalMembers = [

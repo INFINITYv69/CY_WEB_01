@@ -6,7 +6,7 @@ import { ShieldCheck, Star, LayoutList } from "lucide-react";
 export const facultyRolesData = [
   {
     name: "Dr. ARUNA KUMAR B T",
-    designation: "HOD & Associate Professor",
+    designation: "Associate Professor & HOD",
     sub: "Dept. of CY & IY, GM University",
     photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774188001/faculty/nmr2zfqaftglonhpsiuy.jpg",
     roleInDept: "HOD, Research",
