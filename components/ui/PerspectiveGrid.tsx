@@ -11,15 +11,14 @@ export default function PerspectiveGrid() {
   const orb1Ref = useRef<HTMLDivElement>(null);
   const orb2Ref = useRef<HTMLDivElement>(null);
   const orb3Ref = useRef<HTMLDivElement>(null);
-  const hud1Ref = useRef<HTMLDivElement>(null);
-  const hud2Ref = useRef<HTMLDivElement>(null);
+  const orb4Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
 
-    // Grid scrolling
+    // Gentle parallax scroll effect for the background mesh
     gsap.to(containerRef.current, {
-      y: "-25%",
+      y: "-10%",
       ease: "none",
       scrollTrigger: {
         trigger: "body",
@@ -29,50 +28,39 @@ export default function PerspectiveGrid() {
       },
     });
 
-    // Orb 1 scroll animation (drifts from top-left toward right)
+    // Reactive drift on scroll for individual blobs
     if (orb1Ref.current) {
       gsap.to(orb1Ref.current, {
-        x: "40vw",
-        y: "60vh",
-        scale: 1.4,
-        opacity: 0.6,
-        duration: 1,
+        x: "15vw",
+        y: "25vh",
         ease: "none",
         scrollTrigger: {
           trigger: "body",
           start: "top top",
           end: "bottom bottom",
-          scrub: 1.2,
+          scrub: 1.5,
         }
       });
     }
 
-    // Orb 2 scroll animation (drifts from middle-right toward bottom-left)
     if (orb2Ref.current) {
       gsap.to(orb2Ref.current, {
-        x: "-45vw",
-        y: "80vh",
-        scale: 0.8,
-        opacity: 0.55,
-        duration: 1,
+        x: "-20vw",
+        y: "35vh",
         ease: "none",
         scrollTrigger: {
           trigger: "body",
           start: "top top",
           end: "bottom bottom",
-          scrub: 1.6,
+          scrub: 1.8,
         }
       });
     }
 
-    // Orb 3 scroll animation (drifts upward from bottom-left)
     if (orb3Ref.current) {
       gsap.to(orb3Ref.current, {
-        x: "30vw",
-        y: "-40vh",
-        scale: 1.25,
-        opacity: 0.5,
-        duration: 1,
+        x: "20vw",
+        y: "-30vh",
         ease: "none",
         scrollTrigger: {
           trigger: "body",
@@ -83,32 +71,16 @@ export default function PerspectiveGrid() {
       });
     }
 
-    // HUD 1 scroll rotation
-    if (hud1Ref.current) {
-      gsap.to(hud1Ref.current, {
-        rotation: 360,
-        y: "25vh",
+    if (orb4Ref.current) {
+      gsap.to(orb4Ref.current, {
+        x: "-15vw",
+        y: "-20vh",
         ease: "none",
         scrollTrigger: {
           trigger: "body",
           start: "top top",
           end: "bottom bottom",
-          scrub: 0.5,
-        }
-      });
-    }
-
-    // HUD 2 scroll rotation
-    if (hud2Ref.current) {
-      gsap.to(hud2Ref.current, {
-        rotation: -270,
-        y: "-30vh",
-        ease: "none",
-        scrollTrigger: {
-          trigger: "body",
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 0.8,
+          scrub: 1.2,
         }
       });
     }
@@ -116,87 +88,127 @@ export default function PerspectiveGrid() {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-cyber-black">
-      {/* Glowing Neon Orbs */}
-      <div 
-        ref={orb1Ref}
-        className="absolute top-[10%] left-[5%] w-[35rem] h-[35rem] rounded-full bg-neon-cyan/5 blur-[9rem] pointer-events-none z-0"
-      />
-      <div 
-        ref={orb2Ref}
-        className="absolute top-[35%] right-[2%] w-[38rem] h-[38rem] rounded-full bg-neon-magenta/4 blur-[10rem] pointer-events-none z-0"
-      />
-      <div 
-        ref={orb3Ref}
-        className="absolute bottom-[15%] left-[8%] w-[32rem] h-[32rem] rounded-full bg-neon-purple/5 blur-[8rem] pointer-events-none z-0"
+      {/* Subtle background tech grid dots */}
+      <div className="absolute inset-0 opacity-[0.4]"
+        style={{
+          backgroundImage: "radial-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+        }}
       />
 
-      {/* Rotating Cybernetic HUD Rings (Parallax) */}
-      <div 
-        ref={hud1Ref}
-        className="absolute top-[18%] right-[-8rem] w-[26rem] h-[26rem] opacity-[0.14] pointer-events-none z-0 text-neon-cyan select-none"
-      >
-        <svg viewBox="0 0 200 200" className="w-full h-full">
-          <circle cx="100" cy="100" r="70" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2, 6" fill="none" />
-          <circle cx="100" cy="100" r="85" stroke="currentColor" strokeWidth="1" strokeDasharray="30, 15, 10, 15" fill="none" />
-          <circle cx="100" cy="100" r="95" stroke="currentColor" strokeWidth="0.25" fill="none" />
-          <line x1="100" y1="5" x2="100" y2="15" stroke="currentColor" strokeWidth="1" />
-          <line x1="100" y1="185" x2="100" y2="195" stroke="currentColor" strokeWidth="1" />
-          <line x1="5" y1="100" x2="15" y2="100" stroke="currentColor" strokeWidth="1" />
-          <line x1="185" y1="100" x2="195" y2="100" stroke="currentColor" strokeWidth="1" />
-          <circle cx="100" cy="30" r="1.5" fill="currentColor" />
-          <circle cx="100" cy="170" r="1.5" fill="currentColor" />
-        </svg>
-      </div>
-
-      <div 
-        ref={hud2Ref}
-        className="absolute bottom-[12%] left-[-10rem] w-[32rem] h-[32rem] opacity-[0.12] pointer-events-none z-0 text-neon-magenta select-none"
-      >
-        <svg viewBox="0 0 200 200" className="w-full h-full">
-          <circle cx="100" cy="100" r="60" stroke="currentColor" strokeWidth="1" strokeDasharray="80, 20" fill="none" />
-          <circle cx="100" cy="100" r="75" stroke="currentColor" strokeWidth="0.5" strokeDasharray="4, 4" fill="none" />
-          <circle cx="100" cy="100" r="90" stroke="currentColor" strokeWidth="1.25" strokeDasharray="40, 40, 10, 10" fill="none" />
-          <line x1="30" y1="30" x2="40" y2="40" stroke="currentColor" strokeWidth="0.75" />
-          <line x1="170" y1="170" x2="160" y2="160" stroke="currentColor" strokeWidth="0.75" />
-          <line x1="170" y1="30" x2="160" y2="40" stroke="currentColor" strokeWidth="0.75" />
-          <line x1="30" y1="170" x2="40" y2="160" stroke="currentColor" strokeWidth="0.75" />
-        </svg>
-      </div>
-
-      {/* Grid Canvas */}
+      {/* Live Liquid Wavy Mesh Container */}
       <div 
         ref={containerRef}
-        className="absolute inset-0 h-[200%] w-full"
+        className="absolute inset-0 w-full h-[120%] origin-top"
         style={{
-          perspective: "1000px",
-          perspectiveOrigin: "50% 50%",
+          filter: "blur(110px) url(#liquid-wavy-filter)",
         }}
       >
+        {/* Blob 1: Cyan */}
         <div 
-          className="absolute inset-0 h-full w-full"
-          style={{
-            transform: "rotateX(60deg)",
-            transformOrigin: "center center",
-            backgroundSize: "60px 60px",
-            backgroundImage: `
-              linear-gradient(to right, rgba(0, 245, 255, 0.08) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(0, 245, 255, 0.08) 1px, transparent 1px)
-            `,
-            maskImage: "linear-gradient(to bottom, transparent, black 35%, black 65%, transparent)",
-          }}
-        >
-          {/* Pulsing Glow Layer */}
-          <div className="absolute inset-0 h-full w-full animate-pulse opacity-40"
-            style={{
-              backgroundSize: "60px 60px",
-              backgroundImage: `
-                linear-gradient(to right, rgba(0, 245, 255, 0.04) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0, 245, 255, 0.04) 1px, transparent 1px)
-              `,
-            }}
-          />
-        </div>
+          ref={orb1Ref}
+          className="absolute top-[10%] left-[5%] w-[42rem] h-[42rem] rounded-full bg-neon-cyan/6 animate-liquid-1 pointer-events-none"
+        />
+        {/* Blob 2: Indigo/Magenta */}
+        <div 
+          ref={orb2Ref}
+          className="absolute top-[30%] right-[5%] w-[45rem] h-[45rem] rounded-full bg-neon-magenta/5 animate-liquid-2 pointer-events-none"
+        />
+        {/* Blob 3: Teal/Green */}
+        <div 
+          ref={orb3Ref}
+          className="absolute bottom-[20%] left-[8%] w-[38rem] h-[38rem] rounded-full bg-neon-green/5 animate-liquid-3 pointer-events-none"
+        />
+        {/* Blob 4: Soft Orange/Gold */}
+        <div 
+          ref={orb4Ref}
+          className="absolute bottom-[40%] right-[15%] w-[35rem] h-[35rem] rounded-full bg-neon-orange/4 animate-liquid-4 pointer-events-none"
+        />
+        {/* Blob 5: Purple */}
+        <div 
+          className="absolute top-[50%] left-[40%] w-[32rem] h-[32rem] rounded-full bg-neon-purple/5 animate-liquid-1 pointer-events-none"
+        />
       </div>
+
+      {/* Technical UI Vector Graphics (Overlays) */}
+      
+      {/* Top Left Dotted Matrix */}
+      <div className="absolute top-12 left-12 opacity-[0.22] text-neon-cyan select-none pointer-events-none">
+        <svg width="48" height="96" className="w-full h-full">
+          <pattern id="dot-grid-1" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.2" fill="currentColor" />
+          </pattern>
+          <rect width="48" height="96" fill="url(#dot-grid-1)" />
+        </svg>
+      </div>
+
+      {/* Bottom Right Dotted Matrix */}
+      <div className="absolute bottom-12 right-12 opacity-[0.22] text-neon-magenta select-none pointer-events-none">
+        <svg width="96" height="36" className="w-full h-full">
+          <pattern id="dot-grid-2" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.2" fill="currentColor" />
+          </pattern>
+          <rect width="96" height="36" fill="url(#dot-grid-2)" />
+        </svg>
+      </div>
+
+      {/* Plus indicators */}
+      <div className="absolute top-[18%] right-[22%] text-neon-cyan font-sans text-lg font-light opacity-[0.35] select-none pointer-events-none">+</div>
+      <div className="absolute top-[48%] left-[6%] text-neon-magenta font-sans text-lg font-light opacity-[0.35] select-none pointer-events-none">+</div>
+      <div className="absolute bottom-[28%] right-[10%] text-neon-green font-sans text-lg font-light opacity-[0.35] select-none pointer-events-none">+</div>
+
+      {/* Tiny tech labels (Faint, light-themed cyber style) */}
+      <div className="absolute bottom-12 left-12 font-mono text-[9px] text-text-muted/30 tracking-[0.2em] uppercase select-none pointer-events-none flex flex-col gap-1">
+        <span>SYS.LOC // CYBER_STUDIO_V2.0</span>
+        <span>GRID.STATUS // WAVE_DYNAMICS_ACTIVE</span>
+      </div>
+
+      {/* SVG Liquid Filter Definition */}
+      <svg className="hidden">
+        <defs>
+          <filter id="liquid-wavy-filter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.005 0.007" numOctaves="2" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="75" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+        </defs>
+      </svg>
+
+      <style>{`
+        @keyframes morph-1 {
+          0% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; }
+          30% { border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%; }
+          60% { border-radius: 50% 50% 30% 70% / 40% 60% 40% 60%; }
+          100% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; }
+        }
+        @keyframes morph-2 {
+          0% { border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%; }
+          30% { border-radius: 40% 60% 30% 70% / 50% 50% 50% 50%; }
+          60% { border-radius: 50% 50% 70% 30% / 45% 45% 55% 55%; }
+          100% { border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%; }
+        }
+        @keyframes float-loop-1 {
+          0% { transform: rotate(0deg) translate(0px, 0px) scale(1); }
+          50% { transform: rotate(180deg) translate(90px, 60px) scale(1.08); }
+          100% { transform: rotate(360deg) translate(0px, 0px) scale(1); }
+        }
+        @keyframes float-loop-2 {
+          0% { transform: rotate(0deg) translate(0px, 0px) scale(1.08); }
+          50% { transform: rotate(-180deg) translate(-70px, -90px) scale(0.92); }
+          100% { transform: rotate(-360deg) translate(0px, 0px) scale(1.08); }
+        }
+        .animate-liquid-1 {
+          animation: morph-1 20s ease-in-out infinite, float-loop-1 28s ease-in-out infinite;
+        }
+        .animate-liquid-2 {
+          animation: morph-2 24s ease-in-out infinite, float-loop-2 34s ease-in-out infinite;
+        }
+        .animate-liquid-3 {
+          animation: morph-1 28s ease-in-out infinite alternate, float-loop-1 30s ease-in-out infinite alternate;
+        }
+        .animate-liquid-4 {
+          animation: morph-2 32s ease-in-out infinite alternate, float-loop-2 38s ease-in-out infinite alternate;
+        }
+      `}</style>
     </div>
   );
 }
