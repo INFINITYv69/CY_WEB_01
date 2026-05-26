@@ -32,6 +32,7 @@ const studentCorner = [
 ];
 
 const resources = [
+  { title: "GMU LEAP", desc: "Learning, Engagement, and Progress tracking portal for academic excellence.", href: "https://leap.gmu.ac.in/", icon: GraduationCap },
   { title: "Digital Library", desc: "Reference material, journals, and academic reading support.", icon: LibraryBig },
   { title: "Security Labs", desc: "Hands-on practice for networks, forensics, secure software, and cyber defense.", icon: ShieldCheck },
   { title: "Research Support", desc: "Guidance for posters, publications, project writing, and competitions.", icon: Microscope },
@@ -125,9 +126,41 @@ export function LearningResources() {
           <h2 className="text-4xl font-bold md:text-6xl">Learning Resources</h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {resources.map((item, index) => {
             const Icon = item.icon;
+            const isLink = 'href' in item && item.href;
+
+            const cardContent = (
+              <>
+                <div className="mb-8 flex items-center justify-between">
+                  <Icon className="text-neon-magenta" size={34} strokeWidth={1.7} />
+                  {isLink && (
+                    <ArrowUpRight size={20} className="text-text-muted transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-neon-magenta" />
+                  )}
+                </div>
+                <h3 className="mb-4 text-xl font-bold text-text-primary">{item.title}</h3>
+                <p className="text-sm leading-relaxed text-text-muted">{item.desc}</p>
+              </>
+            );
+
+            if (isLink) {
+              return (
+                <motion.a
+                  key={item.title}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.07 }}
+                  className="group block min-h-64 rounded-2xl border border-white/10 bg-cyber-panel/80 p-6 transition-all hover:border-neon-magenta/60 hover:shadow-[0_20px_60px_rgba(79,70,229,0.12)] hover:-translate-y-1 cursor-pointer"
+                >
+                  {cardContent}
+                </motion.a>
+              );
+            }
+
             return (
               <motion.div
                 key={item.title}
@@ -136,9 +169,7 @@ export function LearningResources() {
                 transition={{ delay: index * 0.07 }}
                 className="min-h-64 rounded-2xl border border-white/10 bg-cyber-panel/80 p-6 transition-all hover:border-neon-magenta/60"
               >
-                <Icon className="mb-8 text-neon-magenta" size={34} strokeWidth={1.7} />
-                <h3 className="mb-4 text-xl font-bold text-text-primary">{item.title}</h3>
-                <p className="text-sm leading-relaxed text-text-muted">{item.desc}</p>
+                {cardContent}
               </motion.div>
             );
           })}
