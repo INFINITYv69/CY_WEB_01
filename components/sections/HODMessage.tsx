@@ -11,11 +11,11 @@ export default function HODMessage() {
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(0,245,255,0.03)_0%,transparent_100%)]" />
       <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-neon-cyan/5 blur-3xl pointer-events-none" />
 
-      <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[1.8fr_1.2fr] gap-12 lg:gap-16 items-start relative z-10">
+      <div className="max-w-[1400px] mx-auto flex flex-col gap-12 lg:gap-16 items-center relative z-10">
 
         {/* Left Column: HOD Message Container */}
-        <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 p-8 md:p-10 flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-10">
-
+        <div className="w-full bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 p-8 md:p-10 flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-10">
+          
           {/* HOD Photo & Metadata */}
           <div className="relative flex flex-col items-center flex-shrink-0">
             <div className="relative w-48 h-48 md:w-56 md:h-56">
@@ -77,9 +77,9 @@ export default function HODMessage() {
 
         </div>
 
-        {/* Right Column: Campus Video Container */}
-        <div className="w-full h-full lg:sticky lg:top-28">
-          <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 p-8 flex flex-col h-full relative overflow-hidden group">
+        {/* Campus Video Container (Below HOD Message) */}
+        <div className="w-full max-w-4xl mx-auto">
+          <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 p-8 flex flex-col relative overflow-hidden group">
 
             {/* Header info */}
             <div className="mb-6">

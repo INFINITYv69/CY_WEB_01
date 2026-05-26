@@ -42,6 +42,7 @@ export default function Home() {
         <Faculty />
         <FacultyRoles />
         <BoardOfStudies />
+        <Videos />
         <QuickAccess />
         <StudentCorner />
         <LearningResources />
@@ -50,7 +51,6 @@ export default function Home() {
         <Research />
         <Placement />
         <Admissions />
-        <Videos />
       </main>
 
       {/* Global Progress Bar */}
