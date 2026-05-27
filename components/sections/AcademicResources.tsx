@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import {
@@ -22,7 +22,10 @@ import {
   BookOpenCheck,
   FolderDown,
   Layers,
-  ChevronDown
+  ChevronDown,
+  X,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 
 // Updated Quick Access links
@@ -60,6 +63,41 @@ const quickLinks = [
   }
 ];
 
+const galleryImages: Record<string, string[]> = {
+  "NCC": [
+    "/cyberweb/NCC (1).jpeg",
+    "/cyberweb/NCC (4).jpeg",
+    "/cyberweb/NCC (5).jpeg",
+    "/cyberweb/NCC (6).jpeg",
+    "/cyberweb/NCC (7).jpeg",
+    "/cyberweb/NCC (8).jpeg",
+    "/cyberweb/NCC (9).jpeg",
+    "/cyberweb/NCC (10).jpeg",
+    "/cyberweb/NCC (11).jpeg",
+    "/cyberweb/NCC (12).jpeg",
+    "/cyberweb/NCC (13).jpeg",
+    "/cyberweb/NCC (14).jpeg",
+    "/cyberweb/NCC (15).jpeg",
+    "/cyberweb/NCC (16).jpeg",
+    "/cyberweb/NCC (17).jpeg",
+    "/cyberweb/NCC (18).jpeg",
+  ],
+  "MALLIKA (CULTURAL)": [
+    "/cyberweb/cultural1.jpeg",
+    "/cyberweb/cultural2.png",
+  ],
+  "SPORTS": [
+    "/cyberweb/sports1.jpeg",
+    "/cyberweb/sports2.jpeg",
+    "/cyberweb/sports3.jpeg",
+    "/cyberweb/sports4.jpeg",
+    "/cyberweb/sports5.jpeg",
+  ],
+  "INFRASTRUCTURE": [
+    "/cyberweb/infrastructure.jpg",
+  ],
+};
+
 const studentCorner = [
   "Hackathon preparation and team mentoring",
   "Peer learning groups for labs and projects",
@@ -76,6 +114,51 @@ const resourcesList = [
 ];
 
 export function QuickAccess() {
+  const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+
+  const images = selectedGallery ? galleryImages[selectedGallery] || [] : [];
+
+  const openGallery = (title: string) => {
+    if (galleryImages[title]) {
+      setSelectedGallery(title);
+      setCurrentImageIndex(0);
+    }
+  };
+
+  const closeGallery = () => {
+    setSelectedGallery(null);
+  };
+
+  const nextImage = () => {
+    if (images.length > 0) {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }
+  };
+
+  const prevImage = () => {
+    if (images.length > 0) {
+      setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+    }
+  };
+
+  useEffect(() => {
+    if (!selectedGallery) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        closeGallery();
+      } else if (e.key === "ArrowRight") {
+        nextImage();
+      } else if (e.key === "ArrowLeft") {
+        prevImage();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedGallery, currentImageIndex, images.length]);
+
   return (
     <section id="quick-access" className="relative overflow-hidden bg-cyber-black px-6 py-24 lg:px-24">
       <div className="absolute inset-0 pointer-events-none opacity-[0.05] bg-[linear-gradient(120deg,#00f5ff_0%,transparent_34%),linear-gradient(300deg,#ff00ff_0%,transparent_28%)]" />
@@ -127,7 +210,8 @@ export function QuickAccess() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.06 }}
-                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-cyber-panel/80 min-h-[250px] transition-all hover:-translate-y-1 hover:border-neon-cyan/70 hover:shadow-[0_20px_60px_rgba(0,245,255,0.12)]"
+                onClick={() => openGallery(item.title)}
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-cyber-panel/80 min-h-[250px] transition-all hover:-translate-y-1 hover:border-neon-cyan/70 hover:shadow-[0_20px_60px_rgba(0,245,255,0.12)] cursor-pointer"
               >
                 {/* Background image card */}
                 {hasImage && (
@@ -147,6 +231,11 @@ export function QuickAccess() {
                     <div className="grid h-12 w-12 place-items-center rounded-xl border border-neon-cyan/25 bg-neon-cyan/10 text-neon-cyan">
                       <Icon size={22} />
                     </div>
+                    {galleryImages[item.title] && (
+                      <span className="text-xs font-semibold uppercase tracking-wider text-neon-cyan opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        View Gallery →
+                      </span>
+                    )}
                   </div>
                   <div>
                     <h3 className="mb-2 text-xl font-bold text-text-primary group-hover:text-neon-cyan transition-colors">{item.title}</h3>
@@ -158,6 +247,105 @@ export function QuickAccess() {
           })}
         </div>
       </div>
+
+      {/* Gallery Lightbox Modal */}
+      <AnimatePresence>
+        {selectedGallery && images.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black/90 backdrop-blur-md p-4 sm:p-6"
+            onClick={closeGallery}
+          >
+            {/* Modal Header */}
+            <div 
+              className="absolute top-4 left-4 right-4 z-[110] flex items-center justify-between pointer-events-none"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="text-left bg-cyber-panel/60 backdrop-blur-md border border-white/10 px-4 py-2 rounded-xl">
+                <h3 className="text-lg font-bold text-text-primary uppercase tracking-wide">{selectedGallery}</h3>
+                <p className="text-xs text-text-muted">
+                  Image {currentImageIndex + 1} of {images.length}
+                </p>
+              </div>
+
+              <button
+                onClick={closeGallery}
+                className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-cyber-panel/60 backdrop-blur-md text-text-primary hover:bg-white/10 hover:text-neon-cyan transition-all"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Main Interactive Area */}
+            <div 
+              className="relative flex items-center justify-center w-full max-w-5xl h-[70vh]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Previous Button */}
+              {images.length > 1 && (
+                <button
+                  onClick={prevImage}
+                  className="absolute left-2 sm:left-4 z-[110] flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-cyber-panel/60 backdrop-blur-md text-text-primary hover:bg-white/10 hover:text-neon-cyan transition-all"
+                >
+                  <ChevronLeft size={24} />
+                </button>
+              )}
+
+              {/* Main Image */}
+              <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentImageIndex}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.25 }}
+                    className="relative max-w-full max-h-full p-2 flex items-center justify-center"
+                  >
+                    <img
+                      src={images[currentImageIndex]}
+                      alt={`${selectedGallery} - image ${currentImageIndex + 1}`}
+                      className="max-w-full max-h-[68vh] object-contain rounded-lg border border-white/10 shadow-2xl select-none"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Next Button */}
+              {images.length > 1 && (
+                <button
+                  onClick={nextImage}
+                  className="absolute right-2 sm:right-4 z-[110] flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-cyber-panel/60 backdrop-blur-md text-text-primary hover:bg-white/10 hover:text-neon-cyan transition-all"
+                >
+                  <ChevronRight size={24} />
+                </button>
+              )}
+            </div>
+
+            {/* Dots navigation / indicator bar */}
+            {images.length > 1 && (
+              <div 
+                className="mt-6 flex flex-wrap justify-center gap-2 max-w-xl bg-cyber-panel/40 backdrop-blur-md border border-white/5 py-2.5 px-4 rounded-full z-[110]"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {images.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentImageIndex(idx)}
+                    className={`h-2 transition-all rounded-full ${
+                      currentImageIndex === idx 
+                        ? "w-6 bg-neon-cyan" 
+                        : "w-2 bg-white/20 hover:bg-white/40"
+                    }`}
+                  />
+                ))}
+              </div>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
