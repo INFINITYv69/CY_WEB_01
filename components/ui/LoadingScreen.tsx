@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 
 const bootLines = [
   "Preparing department experience...",
@@ -12,28 +11,28 @@ const bootLines = [
   "Welcome."
 ];
 
-export default function LoadingScreen({ onComplete }: { onComplete: () => void }) {
+export default function LoadingScreen({ onComplete }: { onComplete?: () => void }) {
   const [lines, setLines] = useState<string[]>([]);
   const [currentLine, setCurrentLine] = useState(0);
 
   useEffect(() => {
     if (currentLine < bootLines.length) {
       const timer = setTimeout(() => {
-        setLines(prev => [...prev, bootLines[currentLine]]);
-        setCurrentLine(prev => prev + 1);
+        setLines((prev) => [...prev, bootLines[currentLine]]);
+        setCurrentLine((prev) => prev + 1);
       }, 280);
       return () => clearTimeout(timer);
-    } else {
+    }
+
+    if (onComplete) {
       const timer = setTimeout(onComplete, 900);
       return () => clearTimeout(timer);
     }
   }, [currentLine, onComplete]);
 
   return (
-    <motion.div 
-      exit={{ y: "-100%" }}
-      transition={{ duration: 0.8, ease: "easeInOut" }}
-      className="fixed inset-0 z-[9999] bg-cyber-black flex flex-col items-start justify-center p-8 md:p-24 font-mono text-xs md:text-lg text-neon-green overflow-hidden"
+    <div
+      className="loader-screen fixed inset-0 z-[9999] bg-cyber-black flex flex-col items-start justify-center p-8 md:p-24 font-mono text-xs md:text-lg text-neon-green overflow-hidden"
     >
       <div className="space-y-2">
         {lines.map((line, i) => (
@@ -48,7 +47,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
       <div className="absolute inset-0 pointer-events-none opacity-[0.05] animate-glitch-bg" />
       <div className="absolute bottom-0 left-0 h-1 bg-neon-cyan shadow-[0_0_20px_#00f5ff] animate-boot-progress" />
       
-      <style jsx>{`
+      <style jsx global>{`
         @keyframes glitch-bg {
           0% { transform: translate(0); }
           20% { transform: translate(-5px, 5px); }
@@ -67,7 +66,18 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
         .animate-boot-progress {
           animation: boot-progress 2.9s ease-out forwards;
         }
+        .loader-screen {
+          animation: loader-exit 0.8s ease-in-out 3.2s forwards;
+        }
+        @keyframes loader-exit {
+          to {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateY(-100%);
+          }
+        }
       `}</style>
-    </motion.div>
+    </div>
   );
 }

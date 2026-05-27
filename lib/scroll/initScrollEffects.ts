@@ -75,22 +75,25 @@ export function initScrollEffects() {
     gsap.utils.toArray<HTMLElement>(".scroll-title").forEach((title) => {
       const inner = title.querySelector(".scroll-title-inner");
       const target = inner ?? title;
-      gsap.from(target, {
-        yPercent: 105,
-        rotateX: -32,
-        opacity: 0,
-        transformOrigin: "50% 100%",
-        duration: 1.05,
-        ease: "power4.out",
-        immediateRender: false,
-        scrollTrigger: {
-          trigger: title,
-          scroller: SCROLLER(),
-          start: "top 85%",
-          toggleActions: "play none none none",
-          once: true,
-        },
-      });
+      gsap.fromTo(
+        target,
+        { yPercent: 105, rotateX: -32, autoAlpha: 0, transformOrigin: "50% 100%" },
+        {
+          yPercent: 0,
+          rotateX: 0,
+          autoAlpha: 1,
+          duration: 1.05,
+          ease: "power4.out",
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: title,
+            scroller: SCROLLER(),
+            start: "top 85%",
+            toggleActions: "play none none none",
+            once: true,
+          },
+        }
+      );
     });
 
     // —— Subtitle / label ——
@@ -114,42 +117,56 @@ export function initScrollEffects() {
     // —— Generic reveal ——
     gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((el) => {
       const variant = el.getAttribute("data-reveal") ?? "up";
-      const vars = REVEAL_DEFAULTS[variant] ?? REVEAL_DEFAULTS.up;
-      gsap.from(el, {
-        ...vars,
-        duration: 1,
-        delay: parseDelay(el),
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: el,
-          scroller: SCROLLER(),
-          start: "top 85%",
-          toggleActions: "play none none none",
-          once: true,
-        },
-      });
+      const fromVars = REVEAL_DEFAULTS[variant] ?? REVEAL_DEFAULTS.up;
+      gsap.fromTo(
+        el,
+        { ...fromVars, immediateRender: false },
+        {
+          y: 0,
+          x: 0,
+          scale: 1,
+          rotateX: 0,
+          rotateY: 0,
+          rotate: 0,
+          autoAlpha: 1,
+          filter: "none",
+          duration: 1,
+          delay: parseDelay(el),
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: el,
+            scroller: SCROLLER(),
+            start: "top 85%",
+            toggleActions: "play none none none",
+            once: true,
+          },
+        }
+      );
     });
 
     // —— Stagger children ——
     gsap.utils.toArray<HTMLElement>("[data-stagger]").forEach((parent) => {
       const children = parent.querySelectorAll(":scope > [data-stagger-item], :scope > *");
       if (!children.length) return;
-      gsap.from(children, {
-        y: 48,
-        opacity: 0,
-        rotateX: 10,
-        transformPerspective: 800,
-        duration: 0.85,
-        stagger: 0.1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: parent,
-          scroller: SCROLLER(),
-          start: "top 80%",
-          toggleActions: "play none none none",
-          once: true,
-        },
-      });
+      gsap.fromTo(
+        children,
+        { y: 48, autoAlpha: 0, rotateX: 10, transformPerspective: 800, immediateRender: false },
+        {
+          y: 0,
+          autoAlpha: 1,
+          rotateX: 0,
+          duration: 0.85,
+          stagger: 0.1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: parent,
+            scroller: SCROLLER(),
+            start: "top 80%",
+            toggleActions: "play none none none",
+            once: true,
+          },
+        }
+      );
     });
 
     // —— Parallax layers ——
@@ -168,15 +185,14 @@ export function initScrollEffects() {
       });
     });
 
-    // —— 3D scroll tilt on cards ——
+    // —— Subtle 3D scroll tilt (no negative z — avoids hiding behind backgrounds) ——
     gsap.utils.toArray<HTMLElement>("[data-scroll-tilt]").forEach((card) => {
       gsap.fromTo(
         card,
-        { rotateX: 8, rotateY: -6, z: -40, transformPerspective: 1000 },
+        { rotateX: 4, rotateY: -3, transformPerspective: 1000 },
         {
-          rotateX: -4,
-          rotateY: 4,
-          z: 20,
+          rotateX: -2,
+          rotateY: 2,
           ease: "none",
           scrollTrigger: {
             trigger: card,

@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Shield, Lock, ChevronRight, Download } from "lucide-react";
 import { useState } from "react";
 import { programs as programData } from "@/lib/siteData";
@@ -19,11 +20,11 @@ export default function Programs() {
   return (
     <SectionAtmosphere id="programs" className="bg-white py-24 px-6 lg:px-24" variant="magenta">
       <div className="relative z-10 mx-auto max-w-7xl">
-        <SectionHeading label="Our Academic Offerings" align="center">
+        <SectionHeading label="Our Academic Offerings" align="center" animated={false}>
           Degree <span className="text-neon-cyan">Programs</span>
         </SectionHeading>
 
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2" data-stagger>
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           {programs.map((program, idx) => (
             <ProgramCard key={program.title} program={program} idx={idx} />
           ))}
@@ -35,7 +36,7 @@ export default function Programs() {
 
 type Program = (typeof programs)[number];
 
-function ProgramCard({ program }: { program: Program; idx: number }) {
+function ProgramCard({ program, idx }: { program: Program; idx: number }) {
   const [loading, setLoading] = useState<string | null>(null);
 
   const handleDownload = (type: string) => {
@@ -49,9 +50,11 @@ function ProgramCard({ program }: { program: Program; idx: number }) {
   const Icon = program.icon;
 
   return (
-    <div
-      data-stagger-item
-      data-scroll-tilt
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.55, delay: idx * 0.12, ease: [0.22, 1, 0.36, 1] }}
       className={`group relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br p-10 shadow-xl ${program.bgGradient} ${program.shadow} transition-all duration-500 hover:-translate-y-2`}
     >
       <div className="mb-8 flex flex-col items-center gap-8 text-center md:flex-row md:items-start md:text-left">
@@ -88,6 +91,7 @@ function ProgramCard({ program }: { program: Program; idx: number }) {
 
       <div className="flex flex-col gap-4 sm:flex-row">
         <button
+          type="button"
           onClick={() => handleDownload("program")}
           className={`flex flex-1 items-center justify-center gap-2 rounded-xl px-6 py-4 font-bold tracking-wide shadow-md transition-all hover:shadow-lg ${program.btnBg}`}
         >
@@ -102,6 +106,7 @@ function ProgramCard({ program }: { program: Program; idx: number }) {
         </button>
 
         <button
+          type="button"
           onClick={() => handleDownload("course")}
           className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-4 font-bold tracking-wide text-text-primary shadow-sm transition-all hover:border-slate-300 hover:bg-slate-50 hover:shadow"
         >
@@ -115,6 +120,6 @@ function ProgramCard({ program }: { program: Program; idx: number }) {
           )}
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 }

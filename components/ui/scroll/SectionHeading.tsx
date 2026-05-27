@@ -9,6 +9,8 @@ type SectionHeadingProps = {
   label?: string;
   labelClassName?: string;
   align?: "left" | "center";
+  /** When false, heading is always visible (no GSAP scroll-title hide) */
+  animated?: boolean;
 };
 
 export default function SectionHeading({
@@ -17,18 +19,20 @@ export default function SectionHeading({
   label,
   labelClassName,
   align = "center",
+  animated = true,
 }: SectionHeadingProps) {
   return (
     <div
       className={clsx(
         "mb-14 md:mb-16",
-        align === "center" ? "text-center mx-auto max-w-4xl" : "text-left max-w-3xl"
+        align === "center" ? "mx-auto max-w-4xl text-center" : "max-w-3xl text-left"
       )}
     >
       {label && (
         <p
           className={clsx(
-            "scroll-label text-sm font-bold uppercase tracking-[0.35em] text-text-muted mb-3",
+            "mb-3 text-sm font-bold uppercase tracking-[0.35em] text-text-muted",
+            animated && "scroll-label",
             labelClassName
           )}
         >
@@ -37,11 +41,16 @@ export default function SectionHeading({
       )}
       <h2
         className={clsx(
-          "scroll-title text-4xl md:text-6xl font-orbitron font-bold [perspective:900px]",
+          "text-4xl font-orbitron font-bold md:text-6xl",
+          animated && "scroll-title [perspective:900px]",
           className
         )}
       >
-        <span className="scroll-title-inner inline-block">{children}</span>
+        {animated ? (
+          <span className="scroll-title-inner inline-block">{children}</span>
+        ) : (
+          children
+        )}
       </h2>
     </div>
   );

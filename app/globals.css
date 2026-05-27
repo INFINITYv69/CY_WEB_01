@@ -165,6 +165,24 @@ canvas {
   display: block;
 }
 
+#hero canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.loader-screen {
+  animation: loader-exit 0.8s ease-in-out 3.2s forwards;
+}
+
+@keyframes loader-exit {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-100%);
+  }
+}
+
 /* Scroll-driven 3D & reveal helpers */
 [data-scroll-tilt] {
   transform-style: preserve-3d;

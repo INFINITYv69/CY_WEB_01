@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import ScrollEffects from "@/components/providers/ScrollEffects";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
@@ -28,11 +28,7 @@ export default function Home() {
   return (
     <>
       <ScrollEffects enabled={!isLoading} />
-      <AnimatePresence>
-        {isLoading && (
-          <LoadingScreen onComplete={() => setIsLoading(false)} />
-        )}
-      </AnimatePresence>
+      {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
 
       <main className={isLoading ? "h-screen overflow-hidden text-lg md:text-xl" : "text-lg md:text-xl"}>
         <Hero />

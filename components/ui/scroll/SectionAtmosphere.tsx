@@ -33,13 +33,13 @@ export default function SectionAtmosphere({
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
         <div
           className={clsx(
-            "section-atmosphere-blob scroll-float-shape absolute -top-20 -right-16 h-72 w-72 rounded-full blur-3xl",
+            "section-atmosphere-blob absolute -top-20 -right-16 h-72 w-72 rounded-full blur-3xl",
             a
           )}
         />
         <div
           className={clsx(
-            "section-atmosphere-blob scroll-float-shape absolute -bottom-24 -left-12 h-64 w-64 rounded-full blur-3xl",
+            "section-atmosphere-blob absolute -bottom-24 -left-12 h-64 w-64 rounded-full blur-3xl",
             b
           )}
         />

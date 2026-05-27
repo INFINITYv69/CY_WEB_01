@@ -8,7 +8,12 @@ import * as THREE from "three";
 export default function HeroScene() {
   return (
     <div className="absolute inset-0 z-0 opacity-40">
-      <Canvas dpr={[1, 1.25]} frameloop="always" performance={{ min: 0.7 }}>
+      <Canvas
+        className="h-full w-full"
+        dpr={[1, 1.25]}
+        frameloop="always"
+        performance={{ min: 0.7 }}
+      >
         <PerspectiveCamera makeDefault position={[0, 0, 10]} />
         <ambientLight intensity={1.5} />
         <pointLight position={[10, 10, 10]} color="#0284c7" intensity={2} />
