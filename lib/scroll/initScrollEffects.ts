@@ -4,7 +4,7 @@ import { ensureLenisScroll } from "./setupLenis";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const SCROLLER = () => document.documentElement;
+const SCROLLER = () => window;
 
 const REVEAL_DEFAULTS: Record<
   string,

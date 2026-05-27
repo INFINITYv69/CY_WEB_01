@@ -23,24 +23,24 @@ export function ensureLenisScroll(): Lenis {
 
   const root = document.documentElement;
 
-  ScrollTrigger.scrollerProxy(root, {
-    scrollTop(value?: number) {
-      if (!lenis) return 0;
-      if (value !== undefined) {
-        lenis.scrollTo(value, { immediate: true });
-      }
-      return lenis.scroll;
-    },
-    getBoundingClientRect() {
-      return {
-        top: 0,
-        left: 0,
-        width: window.innerWidth,
-        height: window.innerHeight,
-      };
-    },
-    pinType: root.style.transform ? "transform" : "fixed",
-  });
+  // ScrollTrigger.scrollerProxy(root, {
+  //   scrollTop(value?: number) {
+  //     if (!lenis) return 0;
+  //     if (value !== undefined) {
+  //       lenis.scrollTo(value, { immediate: true });
+  //     }
+  //     return lenis.scroll;
+  //   },
+  //   getBoundingClientRect() {
+  //     return {
+  //       top: 0,
+  //       left: 0,
+  //       width: window.innerWidth,
+  //       height: window.innerHeight,
+  //     };
+  //   },
+  //   pinType: root.style.transform ? "transform" : "fixed",
+  // });
 
   lenis.on("scroll", ScrollTrigger.update);
 
@@ -52,7 +52,7 @@ export function ensureLenisScroll(): Lenis {
     gsap.ticker.lagSmoothing(0);
   }
 
-  ScrollTrigger.defaults({ scroller: root });
+  // ScrollTrigger.defaults({ scroller: root });
 
   return lenis;
 }
