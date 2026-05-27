@@ -1,6 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import {
   ArrowUpRight,
   BookOpen,
@@ -13,15 +15,49 @@ import {
   Microscope,
   ShieldCheck,
   Users,
+  Sparkles,
+  Trophy,
+  Building2,
+  FileDown,
+  BookOpenCheck,
+  FolderDown,
+  Layers,
+  ChevronDown
 } from "lucide-react";
 
+// Updated Quick Access links
 const quickLinks = [
-  { title: "Programs", href: "#programs", desc: "Cyber Security and Information Security programs.", icon: GraduationCap },
-  { title: "Faculty", href: "#faculty", desc: "Meet the teaching and mentoring team.", icon: Users },
-  { title: "Achievements", href: "#achievements", desc: "Student awards, hackathons, and recognitions.", icon: Medal },
-  { title: "BOS", href: "#board-of-studies", desc: "Board of Studies members and academic guidance.", icon: ClipboardList },
-  { title: "Gallery", href: "#gallery", desc: "Department activities and student moments.", icon: CalendarDays },
-  { title: "Admissions", href: "#admissions", desc: "Eligibility, process, and coordinator details.", icon: FileText },
+  {
+    title: "NCC",
+    desc: "National Cadet Corps unit encouraging discipline, leadership, and adventure activities.",
+    image: "/cyberweb/NCC (1).jpeg",
+    icon: ShieldCheck,
+  },
+  {
+    title: "MALLIKA (CULTURAL)",
+    desc: "Cultural forum promoting artistic expression, annual festivals, music, and dance.",
+    image: "/cyberweb/cultural1.jpeg",
+    icon: Sparkles,
+  },
+  {
+    title: "SPORTS",
+    desc: "Sports achievements, physical training, tournaments, and athletic excellence.",
+    image: "/cyberweb/sports1.jpeg",
+    icon: Trophy,
+  },
+  {
+    title: "INFRASTRUCTURE",
+    desc: "State-of-the-art cyber defense labs, smart classrooms, and research facilities.",
+    image: "/cyberweb/infrastructure.jpg",
+    icon: Building2,
+  },
+  {
+    title: "ACADEMIC SCHEDULES & UPDATES",
+    desc: "Latest academic calendars, assessment schedules, exams, and university circulars.",
+    href: "https://gmu.ac.in/academics_assessment",
+    icon: CalendarDays,
+    isExternal: true,
+  }
 ];
 
 const studentCorner = [
@@ -31,12 +67,12 @@ const studentCorner = [
   "Student project support and showcase opportunities",
 ];
 
-const resources = [
+const resourcesList = [
   { title: "GMU LEAP", desc: "Learning, Engagement, and Progress tracking portal for academic excellence.", href: "https://leap.gmu.ac.in/", icon: GraduationCap },
+  { title: "Study Materials", desc: "Access semester-wise notes, syllabus structures, and resources.", isStudyMaterials: true, icon: BookOpenCheck },
   { title: "Digital Library", desc: "Reference material, journals, and academic reading support.", icon: LibraryBig },
   { title: "Security Labs", desc: "Hands-on practice for networks, forensics, secure software, and cyber defense.", icon: ShieldCheck },
   { title: "Research Support", desc: "Guidance for posters, publications, project writing, and competitions.", icon: Microscope },
-  { title: "Learning Platforms", desc: "Curated online learning paths for certifications and skill building.", icon: BookOpen },
 ];
 
 export function QuickAccess() {
@@ -50,31 +86,74 @@ export function QuickAccess() {
             <h2 className="text-4xl font-bold md:text-6xl">Quick Access</h2>
           </div>
           <p className="max-w-2xl text-base leading-relaxed text-text-muted">
-            Important academic areas are collected here so visitors can reach the most useful department information quickly.
+            Explore active groups, facilities, cultural life, and official academic guidelines in the department.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {quickLinks.map((item, index) => {
             const Icon = item.icon;
+            const hasImage = !!item.image;
+
+            if (item.isExternal) {
+              return (
+                <motion.a
+                  key={item.title}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.06 }}
+                  className="group relative overflow-hidden rounded-2xl border border-white/10 bg-cyber-panel/80 p-6 transition-all hover:-translate-y-1 hover:border-neon-cyan/70 hover:shadow-[0_20px_60px_rgba(0,245,255,0.12)] cursor-pointer min-h-[220px] flex flex-col justify-between"
+                >
+                  <div className="mb-4 flex items-center justify-between">
+                    <div className="grid h-12 w-12 place-items-center rounded-xl border border-neon-cyan/25 bg-neon-cyan/10 text-neon-cyan">
+                      <Icon size={22} />
+                    </div>
+                    <ArrowUpRight size={20} className="text-text-muted transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-neon-cyan" />
+                  </div>
+                  <div>
+                    <h3 className="mb-2 text-xl font-bold text-text-primary group-hover:text-neon-cyan transition-colors">{item.title}</h3>
+                    <p className="text-sm leading-relaxed text-text-muted">{item.desc}</p>
+                  </div>
+                </motion.a>
+              );
+            }
+
             return (
-              <motion.a
+              <motion.div
                 key={item.title}
-                href={item.href}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.06 }}
-                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-cyber-panel/80 p-6 transition-all hover:-translate-y-1 hover:border-neon-cyan/70 hover:shadow-[0_20px_60px_rgba(0,245,255,0.12)]"
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-cyber-panel/80 min-h-[250px] transition-all hover:-translate-y-1 hover:border-neon-cyan/70 hover:shadow-[0_20px_60px_rgba(0,245,255,0.12)]"
               >
-                <div className="mb-7 flex items-center justify-between">
-                  <div className="grid h-12 w-12 place-items-center rounded-xl border border-neon-cyan/25 bg-neon-cyan/10 text-neon-cyan">
-                    <Icon size={22} />
+                {/* Background image card */}
+                {hasImage && (
+                  <div className="absolute inset-0 z-0">
+                    <Image
+                      src={item.image!}
+                      alt={item.title}
+                      fill
+                      className="object-cover opacity-35 transition-transform duration-500 group-hover:scale-105 group-hover:opacity-45"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-cyber-black via-cyber-black/70 to-transparent" />
                   </div>
-                  <ArrowUpRight size={20} className="text-text-muted transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-neon-cyan" />
+                )}
+
+                <div className="relative z-10 h-full p-6 flex flex-col justify-between min-h-[250px]">
+                  <div className="mb-4 flex items-center justify-between">
+                    <div className="grid h-12 w-12 place-items-center rounded-xl border border-neon-cyan/25 bg-neon-cyan/10 text-neon-cyan">
+                      <Icon size={22} />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="mb-2 text-xl font-bold text-text-primary group-hover:text-neon-cyan transition-colors">{item.title}</h3>
+                    <p className="text-sm leading-relaxed text-text-primary/70">{item.desc}</p>
+                  </div>
                 </div>
-                <h3 className="mb-3 text-2xl font-bold text-text-primary">{item.title}</h3>
-                <p className="text-sm leading-relaxed text-text-muted">{item.desc}</p>
-              </motion.a>
+              </motion.div>
             );
           })}
         </div>
@@ -118,6 +197,27 @@ export function StudentCorner() {
 }
 
 export function LearningResources() {
+  const [showStudyMaterials, setShowStudyMaterials] = useState(false);
+  const [selectedSemester, setSelectedSemester] = useState<number | null>(1);
+  const studyMaterialsRef = useRef<HTMLDivElement>(null);
+
+  const semesters = Array.from({ length: 8 }, (_, i) => i + 1);
+  const schemes = [
+    { name: "2023 Scheme", description: "Curriculum structure for batches joining in 2023.", color: "border-neon-cyan text-neon-cyan bg-neon-cyan/5" },
+    { name: "2024 Scheme", description: "Updated security domains curriculum for 2024 batch.", color: "border-neon-magenta text-neon-magenta bg-neon-magenta/5" },
+    { name: "2025 Scheme", description: "Enhanced hands-on cyber curriculum for 2025 entry.", color: "border-neon-green text-neon-green bg-neon-green/5" },
+    { name: "2026 Scheme", description: "AI & emerging security paradigms integrated scheme.", color: "border-neon-cyan text-neon-cyan bg-neon-cyan/5" },
+  ];
+
+  const handleStudyMaterialsClick = () => {
+    setShowStudyMaterials(!showStudyMaterials);
+    if (!showStudyMaterials) {
+      setTimeout(() => {
+        studyMaterialsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    }
+  };
+
   return (
     <section id="learning-resources" className="bg-cyber-black px-6 py-24 lg:px-24">
       <div className="mx-auto max-w-7xl">
@@ -126,10 +226,11 @@ export function LearningResources() {
           <h2 className="text-4xl font-bold md:text-6xl">Learning Resources</h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-          {resources.map((item, index) => {
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 mb-12">
+          {resourcesList.map((item, index) => {
             const Icon = item.icon;
             const isLink = 'href' in item && item.href;
+            const isStudy = 'isStudyMaterials' in item && item.isStudyMaterials;
 
             const cardContent = (
               <>
@@ -138,11 +239,33 @@ export function LearningResources() {
                   {isLink && (
                     <ArrowUpRight size={20} className="text-text-muted transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-neon-magenta" />
                   )}
+                  {isStudy && (
+                    <ChevronDown size={20} className={`text-text-muted transition-transform duration-300 ${showStudyMaterials ? "rotate-180 text-neon-magenta" : ""}`} />
+                  )}
                 </div>
                 <h3 className="mb-4 text-xl font-bold text-text-primary">{item.title}</h3>
                 <p className="text-sm leading-relaxed text-text-muted">{item.desc}</p>
               </>
             );
+
+            if (isStudy) {
+              return (
+                <motion.button
+                  key={item.title}
+                  onClick={handleStudyMaterialsClick}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.07 }}
+                  className={`group text-left block min-h-64 rounded-2xl border p-6 transition-all hover:-translate-y-1 cursor-pointer w-full ${
+                    showStudyMaterials
+                      ? "border-neon-magenta bg-neon-magenta/5 shadow-[0_0_30px_rgba(255,0,255,0.15)]"
+                      : "border-white/10 bg-cyber-panel/80 hover:border-neon-magenta/60 hover:shadow-[0_20px_60px_rgba(79,70,229,0.12)]"
+                  }`}
+                >
+                  {cardContent}
+                </motion.button>
+              );
+            }
 
             if (isLink) {
               return (
@@ -174,6 +297,91 @@ export function LearningResources() {
             );
           })}
         </div>
+
+        {/* Study Materials Panel */}
+        <AnimatePresence>
+          {showStudyMaterials && (
+            <motion.div
+              ref={studyMaterialsRef}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="overflow-hidden border border-white/10 bg-cyber-panel/40 backdrop-blur-xl rounded-3xl p-6 lg:p-10 shadow-[0_20px_80px_rgba(0,0,0,0.4)]"
+            >
+              <div className="flex flex-col gap-8">
+                {/* Header */}
+                <div className="flex flex-col gap-2">
+                  <span className="text-xs font-semibold tracking-wider text-neon-magenta uppercase font-orbitron">Directory</span>
+                  <h3 className="text-3xl font-bold text-text-primary">Study Materials</h3>
+                  <p className="text-sm text-text-muted">Select a semester to access documents and schemes.</p>
+                </div>
+
+                {/* Semester Selector Grid */}
+                <div className="grid grid-cols-4 sm:grid-cols-8 gap-2 border-b border-white/10 pb-6">
+                  {semesters.map((sem) => (
+                    <button
+                      key={sem}
+                      onClick={() => setSelectedSemester(sem)}
+                      className={`py-3 px-1 rounded-xl text-sm font-bold font-orbitron transition-all border ${
+                        selectedSemester === sem
+                          ? "bg-neon-magenta text-white border-neon-magenta shadow-[0_0_15px_rgba(255,0,255,0.3)] scale-[1.03]"
+                          : "bg-cyber-black/40 text-text-muted border-white/5 hover:border-neon-magenta/40 hover:text-text-primary"
+                      }`}
+                    >
+                      Sem {sem}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Schemes Display */}
+                {selectedSemester && (
+                  <motion.div
+                    key={selectedSemester}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                  >
+                    {schemes.map((scheme, idx) => (
+                      <div
+                        key={scheme.name}
+                        className="flex flex-col justify-between p-5 rounded-2xl border border-white/10 bg-cyber-black/30 min-h-[220px] transition-all hover:border-white/20"
+                      >
+                        <div>
+                          <div className="flex items-center gap-2 mb-3">
+                            <span className="text-text-primary font-bold text-lg">{scheme.name}</span>
+                          </div>
+                          <p className="text-xs text-text-muted leading-relaxed mb-6">{scheme.description}</p>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                          <button
+                            onClick={() => alert(`Accessing Semester ${selectedSemester} - ${scheme.name} syllabus resources.`)}
+                            className="flex items-center justify-between px-4 py-2.5 rounded-xl border border-white/10 text-xs font-bold text-text-primary bg-cyber-panel/60 hover:bg-white/5 transition-all w-full cursor-pointer"
+                          >
+                            <span className="flex items-center gap-2">
+                              <FileDown size={14} className="text-neon-magenta" /> Syllabus Structure
+                            </span>
+                            <ArrowUpRight size={12} className="text-text-muted" />
+                          </button>
+                          <button
+                            onClick={() => alert(`Accessing Semester ${selectedSemester} - ${scheme.name} notes & lecture materials.`)}
+                            className="flex items-center justify-between px-4 py-2.5 rounded-xl border border-white/10 text-xs font-bold text-text-primary bg-cyber-panel/60 hover:bg-white/5 transition-all w-full cursor-pointer"
+                          >
+                            <span className="flex items-center gap-2">
+                              <FolderDown size={14} className="text-neon-cyan" /> Lecture Notes
+                            </span>
+                            <ArrowUpRight size={12} className="text-text-muted" />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </motion.div>
+                )}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

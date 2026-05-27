@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "lenis/dist/lenis.css";
 
 @theme {
   --font-share-tech: var(--font-body), system-ui, sans-serif;
@@ -38,6 +39,11 @@
 }
 
 @layer base {
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
   html {
     font-size: 16px; /* Standard base scale */
   }
@@ -157,4 +163,28 @@
 
 canvas {
   display: block;
+}
+
+/* Scroll-driven 3D & reveal helpers */
+[data-scroll-tilt] {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.scroll-title,
+[data-reveal],
+[data-stagger] > * {
+  backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  .scroll-title-inner,
+  .scroll-label,
+  .scroll-section-glow,
+  .scroll-float-shape,
+  .section-atmosphere-blob {
+    animation: none !important;
+    transition: none !important;
+  }
 }

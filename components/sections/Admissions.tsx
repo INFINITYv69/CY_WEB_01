@@ -3,19 +3,23 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, ExternalLink, GraduationCap, QrCode } from "lucide-react";
 import Image from "next/image";
+import SectionHeading from "@/components/ui/scroll/SectionHeading";
+import SectionAtmosphere from "@/components/ui/scroll/SectionAtmosphere";
 
 export default function Admissions() {
   return (
-    <section id="admissions" className="py-24 px-6 lg:px-24 bg-cyber-dark/20">
-      <div className="max-w-7xl mx-auto flex flex-col items-center">
-        <h2 className="text-4xl md:text-6xl font-orbitron font-bold mb-16 text-center flex items-center justify-center gap-4">
-          <GraduationCap size={56} className="text-neon-cyan" />
-          <span className="text-neon-cyan">Admissions</span>
-        </h2>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 w-full max-w-6xl">
+    <SectionAtmosphere id="admissions" className="bg-cyber-dark/20 py-24 px-6 lg:px-24" variant="cyan">
+      <div className="mx-auto flex max-w-7xl flex-col items-center">
+        <SectionHeading className="[&_.scroll-title-inner]:text-neon-cyan">
+          <span className="flex items-center justify-center gap-4">
+            <GraduationCap size={56} className="text-neon-cyan" />
+            Admissions
+          </span>
+        </SectionHeading>
+
+        <div className="grid w-full max-w-6xl grid-cols-1 gap-10 lg:grid-cols-3" data-stagger>
           {/* Coordinator Card */}
-          <div className="p-8 bg-gradient-to-b from-yellow-50 to-amber-100/50 border-2 border-amber-200/60 rounded-3xl relative overflow-hidden group flex flex-col justify-center shadow-lg shadow-amber-900/5 hover:shadow-[0_18px_50px_rgba(251,191,36,0.2)] hover:border-amber-400 transition-all duration-300">
+          <div data-stagger-item data-scroll-tilt className="group relative flex flex-col justify-center overflow-hidden rounded-3xl border-2 border-amber-200/60 bg-gradient-to-b from-yellow-50 to-amber-100/50 p-8 shadow-lg shadow-amber-900/5 transition-all duration-300 hover:border-amber-400 hover:shadow-[0_18px_50px_rgba(251,191,36,0.2)]">
             <div className="flex flex-col md:flex-row items-center gap-6 mb-8 text-center md:text-left">
               <div className="relative w-40 h-40 rounded-full p-[4px] bg-gradient-to-tr from-blue-800 via-blue-500 to-cyan-400 shadow-[0_0_25px_rgba(59,130,246,0.3)] shrink-0 group-hover:shadow-[0_0_35px_rgba(59,130,246,0.5)] transition-all duration-500">
                 <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white bg-white">
@@ -42,7 +46,7 @@ export default function Admissions() {
           </div>
 
           {/* QR Code Card */}
-          <div className="flex flex-col justify-center items-center p-8 bg-gradient-to-b from-yellow-50 to-amber-100/50 border-2 border-amber-200/60 rounded-3xl text-center shadow-lg shadow-amber-900/5 hover:shadow-[0_18px_50px_rgba(251,191,36,0.2)] hover:border-amber-400 transition-all duration-300 group">
+          <div data-stagger-item data-scroll-tilt className="group flex flex-col items-center justify-center rounded-3xl border-2 border-amber-200/60 bg-gradient-to-b from-yellow-50 to-amber-100/50 p-8 text-center shadow-lg shadow-amber-900/5 transition-all duration-300 hover:border-amber-400 hover:shadow-[0_18px_50px_rgba(251,191,36,0.2)]">
             <QrCode size={28} className="text-sky-600 mb-3" />
             <p className="text-xs font-bold font-mono text-sky-600 uppercase tracking-widest mb-4">Scan for Admission Query</p>
             <div className="relative w-44 h-44 rounded-2xl overflow-hidden border-4 border-white shadow-lg group-hover:shadow-[0_0_25px_rgba(14,165,233,0.3)] transition-all duration-500">
@@ -57,7 +61,7 @@ export default function Admissions() {
           </div>
 
           {/* Admission Link Call to Action */}
-          <div className="flex flex-col justify-center items-center p-12 bg-cyber-panel border border-neon-cyan/30 rounded-3xl text-center relative overflow-hidden group">
+          <div data-stagger-item data-scroll-tilt className="group relative flex flex-col items-center justify-center overflow-hidden rounded-3xl border border-neon-cyan/30 bg-cyber-panel p-12 text-center">
             <h3 className="text-2xl md:text-3xl font-orbitron font-bold text-text-primary mb-6">
               Ready to Join Us?
             </h3>
@@ -82,6 +86,6 @@ export default function Admissions() {
           </div>
         </div>
       </div>
-    </section>
+    </SectionAtmosphere>
   );
 }

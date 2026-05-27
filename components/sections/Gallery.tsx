@@ -5,6 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { galleryImages } from "@/lib/siteData";
+import SectionHeading from "@/components/ui/scroll/SectionHeading";
+import SectionAtmosphere from "@/components/ui/scroll/SectionAtmosphere";
+import ScrollReveal from "@/components/ui/scroll/ScrollReveal";
 
 export default function Gallery() {
   const [index, setIndex] = useState(0);
@@ -26,13 +29,13 @@ export default function Gallery() {
   }, []);
 
   return (
-    <section id="gallery" className="relative py-24 px-6 overflow-hidden bg-cyber-dark/30">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-6xl font-orbitron font-bold mb-16 text-center">
+    <SectionAtmosphere id="gallery" className="bg-cyber-dark/30 py-24 px-6" variant="magenta">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeading className="[&_.scroll-title-inner]:text-neon-magenta">
           <span className="text-neon-magenta">Gallery</span>
-        </h2>
+        </SectionHeading>
 
-        <div className="relative h-[400px] md:h-[600px] flex items-center justify-center">
+        <ScrollReveal variant="flip" className="relative flex h-[400px] items-center justify-center md:h-[600px]">
           <AnimatePresence initial={false} custom={direction}>
             {galleryImages.map((img, i) => {
               const offset = (i - index + galleryImages.length) % galleryImages.length;
@@ -103,7 +106,7 @@ export default function Gallery() {
               <ChevronRight className="group-hover:scale-125 transition-transform" />
             </button>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
 
       <style jsx global>{`
@@ -115,7 +118,7 @@ export default function Gallery() {
           animation: scan-vertical 2s linear infinite;
         }
       `}</style>
-    </section>
+    </SectionAtmosphere>
   );
 }
 

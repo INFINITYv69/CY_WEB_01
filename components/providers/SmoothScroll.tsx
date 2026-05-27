@@ -1,28 +1,12 @@
 "use client";
 
-import Lenis from "lenis";
-import { ReactNode, useEffect } from "react";
+import { ensureLenisScroll } from "@/lib/scroll/setupLenis";
+import { ReactNode, useLayoutEffect } from "react";
 
+/** Bootstraps Lenis + ScrollTrigger scroller proxy as early as possible */
 export default function SmoothScroll({ children }: { children: ReactNode }) {
-  useEffect(() => {
-    const lenis = new Lenis({
-      lerp: 0.1,
-      duration: 1.5,
-      smoothWheel: true,
-    });
-
-    let rafId = 0;
-    const raf = (time: number) => {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
-    };
-
-    rafId = requestAnimationFrame(raf);
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      lenis.destroy();
-    };
+  useLayoutEffect(() => {
+    ensureLenisScroll();
   }, []);
 
   return <>{children}</>;

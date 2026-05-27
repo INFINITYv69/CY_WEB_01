@@ -1,8 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { useInView } from "framer-motion";
 import { Info } from "lucide-react";
+import SectionHeading from "@/components/ui/scroll/SectionHeading";
+import SectionAtmosphere from "@/components/ui/scroll/SectionAtmosphere";
+import ScrollReveal from "@/components/ui/scroll/ScrollReveal";
 
 const stats = [
   { label: "EST. 2024", value: "2024", sub: "Pulsing System", type: "pulse" },
@@ -42,7 +45,8 @@ export default function About() {
   }, [isInView]);
 
   return (
-    <section id="about" ref={containerRef} className="relative py-24 px-6 lg:px-24 overflow-hidden">
+    <SectionAtmosphere id="about" variant="neutral" className="py-24 px-6 lg:px-24">
+      <div ref={containerRef}>
       {/* Binary Rain Background (Temporary) */}
       {binaryRain && mounted && (
         <div className="absolute inset-0 z-0 pointer-events-none opacity-20 flex justify-around overflow-hidden">
@@ -61,30 +65,30 @@ export default function About() {
       <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center text-center">
         {/* Text Content */}
         <div>
-          <h2 className="text-4xl md:text-6xl font-orbitron font-bold mb-8 flex flex-col items-center gap-y-2 leading-tight">
-            <span className="text-neon-cyan flex items-center gap-4"><Info size={40} className="text-neon-cyan" /> About the Department</span>
-          </h2>
+          <SectionHeading className="[&_.scroll-title-inner]:text-neon-cyan">
+            <span className="flex items-center justify-center gap-4">
+              <Info size={40} className="text-neon-cyan" /> About the Department
+            </span>
+          </SectionHeading>
 
-          <div className="space-y-6 font-share-tech text-text-primary/70 leading-relaxed text-lg md:text-2xl">
+          <ScrollReveal variant="blur" className="space-y-6 font-share-tech text-lg leading-relaxed text-text-primary/70 md:text-2xl">
             <p>
               The Department of CS-Cybersecurity and the Department of CS-Information Security at GM University is at the forefront of network analytics, network security, and topologies, dedicated to advancing the field of cybersecurity through innovative research and quality education. Established in 2024, our department has quickly become a center of excellence for cybersecurity education and research.
             </p>
             <p>
               We offer comprehensive programs that blend theoretical foundations with practical applications, preparing students for careers in the rapidly evolving field of cybersecurity. Our curriculum is designed in collaboration with industry experts to ensure relevance and employability.
             </p>
-          </div>
+          </ScrollReveal>
 
-          <div className="mt-12 flex flex-wrap justify-center gap-3">
-            {featureTags.map((tag, i) => (
-              <motion.div
+          <div className="mt-12 flex flex-wrap justify-center gap-3" data-stagger>
+            {featureTags.map((tag) => (
+              <div
                 key={tag}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                className="px-4 py-2 bg-neon-cyan/10 border border-neon-cyan/30 rounded-full text-[10px] md:text-sm font-bold uppercase tracking-widest text-neon-cyan hover:bg-neon-cyan/20 transition-all cursor-crosshair"
+                data-stagger-item
+                className="cursor-crosshair rounded-full border border-neon-cyan/30 bg-neon-cyan/10 px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-neon-cyan transition-all hover:bg-neon-cyan/20 md:text-sm"
               >
                 {tag}
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -99,6 +103,7 @@ export default function About() {
           animation: matrix-fall linear infinite;
         }
       `}</style>
-    </section>
+      </div>
+    </SectionAtmosphere>
   );
 }
