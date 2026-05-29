@@ -176,6 +176,7 @@ export default function Videos() {
                     src={activeVideo.src}
                     controls
                     autoPlay
+                    muted
                     className="w-full h-full object-contain"
                   />
                 ) : (
