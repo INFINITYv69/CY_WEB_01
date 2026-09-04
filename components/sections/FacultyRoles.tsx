@@ -9,7 +9,7 @@ export const facultyRolesData = [
     designation: "Associate Professor & HOD",
     sub: "Dept. of CY & IY, GM University",
     photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774188001/faculty/nmr2zfqaftglonhpsiuy.jpg",
-    roleInDept: "HOD, Research",
+    roleInDept: "HOD, Disciplinary & Anti Ragging Committee",
     additionalResponsibility: "Dept. Website, MOUs & Hackathon"
   },
   {
@@ -17,47 +17,23 @@ export const facultyRolesData = [
     designation: "Asst. Professor",
     sub: "GM University",
     photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774186811/faculty/y6ae6gg2x3tubgga7mf7.jpg",
-    roleInDept: "Placement & CIGSRD, WEC",
-    additionalResponsibility: "Mentor-IY2A & PBL Coordinator-2nd Sem"
-  },
-  {
-    name: "Ms. NAYANA M R",
-    designation: "Asst. Professor",
-    sub: "GM University",
-    photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774186833/faculty/zhunb2wmcsbbk5drsym8.png",
-    roleInDept: "Academic & ERP",
-    additionalResponsibility: "Mentor & Class Teacher - IY2A & PBL Coordinator-4th Sem"
-  },
-  {
-    name: "Ms. RAKSHITHA G B",
-    designation: "Faculty Member",
-    sub: "GM University",
-    photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774186941/faculty/ltzzcjpykc3lllet4cw0.jpg",
-    roleInDept: "LEAP & TC",
-    additionalResponsibility: "Mentor & Class Teacher - CY1A"
+    roleInDept: "Research, WEC Member",
+    additionalResponsibility: "NIL"
   },
   {
     name: "Ms. SWATHI A",
     designation: "Asst. Professor",
     sub: "GM University",
     photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774186868/faculty/qp99ezxxg2anwihurhbc.png",
-    roleInDept: "Internal Assessment (IA)",
-    additionalResponsibility: "Mentor & Class Teacher - CY2A"
-  },
-  {
-    name: "MR. PAVAN N T",
-    designation: "Faculty Member",
-    sub: "GM University",
-    photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774186979/faculty/fsmxyknyr8ke2wzpep5j.png",
-    roleInDept: "Admission, IQAC",
-    additionalResponsibility: "Mentor - CY2B"
+    roleInDept: "Academic, Internal Assessment (IA)",
+    additionalResponsibility: "Class Teacher - IY2A & Mentor"
   },
   {
     name: "Ms. SHWETHA D S",
     designation: "Asst. Professor",
     sub: "GM University",
     photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774186907/faculty/fa7dhkpotokr0smvrvqk.png",
-    roleInDept: "Idea Lab, NCC & NSS & Sports",
+    roleInDept: "Idea Lab, Innovation & Entrepreneurship, ERP",
     additionalResponsibility: "Mentor & Class Teacher - CY2B"
   },
   {
@@ -65,32 +41,64 @@ export const facultyRolesData = [
     designation: "Asst. Professor",
     sub: "GM University",
     photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774936613/faculty/1000047973_jpg_1774936613.jpg",
-    roleInDept: "EMS, Student Affairs & SS",
+    roleInDept: "EMS, Student Affairs",
     additionalResponsibility: "Mentor & Class Teacher - IY1A"
-  },
-  {
-    name: "HARDIK B",
-    designation: "Asst. Professor",
-    sub: "GM University",
-    photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774936572/faculty/1000047972_jpg_1774936572.jpg",
-    roleInDept: "Admission, IQAC",
-    additionalResponsibility: "Mentor - IY1A, PBL-6th Sem"
   },
   {
     name: "VIDYA H G",
     designation: "Asst. Professor",
     sub: "GM University",
     photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774936588/faculty/1000047974_jpg_1774936588.jpg",
-    roleInDept: "Micro-Credentials",
-    additionalResponsibility: "Mentor and Class Teacher 6th"
+    roleInDept: "Micro-Credentials, Immersion Programme",
+    additionalResponsibility: "Class Teacher - CY2A & Mentor"
   },
   {
-    name: "Ms. BHOOMIKA G S",
+    name: "BHOOMIKA G S",
     designation: "Asst. Professor",
     sub: "GM University",
     photo: "/cyberweb/bhoomika.jpg",
-    roleInDept: "Cultural",
-    additionalResponsibility: "Mentor & Class Teacher - CY2A"
+    roleInDept: "Cultural, Hackathon",
+    additionalResponsibility: "Class Teacher - CY2A & Mentor"
+  },
+  {
+    name: "Mr. NANDAN KURDEKAR",
+    designation: "Asst. Professor",
+    sub: "GM University",
+    photo: "/cyberweb/nandan.png",
+    roleInDept: "Placement & Internship",
+    additionalResponsibility: "Class Teacher - IY3A & Mentor"
+  },
+  {
+    name: "Ms. JABEEN TAJ M K",
+    designation: "Asst. Professor",
+    sub: "GM University",
+    photo: "/cyberweb/jabeen.png",
+    roleInDept: "NCC, NSS, Sports & Yoga",
+    additionalResponsibility: "Class Teacher - CY3B & Mentor"
+  },
+  {
+    name: "Ms. RAKSHITHA G B",
+    designation: "Tutor",
+    sub: "GM University",
+    photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774186941/faculty/ltzzcjpykc3lllet4cw0.jpg",
+    roleInDept: "LEAP & TC",
+    additionalResponsibility: "Mentor & Class Teacher - CY1A"
+  },
+  {
+    name: "MR. PAVAN N T",
+    designation: "Tutor",
+    sub: "GM University",
+    photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774186979/faculty/fsmxyknyr8ke2wzpep5j.png",
+    roleInDept: "Admission, DQAC",
+    additionalResponsibility: "Mentor - CY2B"
+  },
+  {
+    name: "Ms. PUSHPA U",
+    designation: "Tutor",
+    sub: "GM University",
+    photo: "/cyberweb/pushpa.png",
+    roleInDept: "5S, Admission",
+    additionalResponsibility: "NIL"
   }
 ];
 
