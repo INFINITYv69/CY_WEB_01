@@ -78,15 +78,15 @@ export const facultyRolesData = [
   },
   {
     name: "Ms. RAKSHITHA G B",
-    designation: "Tutor",
+    designation: "Faculty Member",
     sub: "GM University",
-    photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774186941/faculty/ltzzcjpykc3lllet4cw0.jpg",
+    photo: "/cyberweb/rakshita.png",
     roleInDept: "LEAP & TC",
     additionalResponsibility: "Mentor & Class Teacher - CY1A"
   },
   {
     name: "MR. PAVAN N T",
-    designation: "Tutor",
+    designation: "Faculty Member",
     sub: "GM University",
     photo: "https://res.cloudinary.com/dkg60zkba/image/upload/v1774186979/faculty/fsmxyknyr8ke2wzpep5j.png",
     roleInDept: "Admission, DQAC",
@@ -94,7 +94,7 @@ export const facultyRolesData = [
   },
   {
     name: "Ms. PUSHPA U",
-    designation: "Tutor",
+    designation: "Faculty Member",
     sub: "GM University",
     photo: "/cyberweb/pushpa.png",
     roleInDept: "5S, Admission",
